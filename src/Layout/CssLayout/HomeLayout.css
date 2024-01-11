@@ -1,0 +1,18 @@
+.wrapper{
+    position: relative;
+}
+
+.wrapper .navbar{
+    width: 100%;
+    position: fixed;
+}
+
+.home-container{
+    min-height: 100vh;
+    max-height: 100vh;
+    background-color: #87f031;
+}
+
+.outlet-container{
+    min-height: 100vh;
+}
