@@ -1,0 +1,78 @@
+
+.navbar-container{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+
+.navbar-container .top-navbar{
+    padding: 7px;
+    display: flex;
+    align-items: center;
+    width: 800px;
+    height: 100%;
+    background-color: #000814;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 56% 100%, 53% 53%, 47% 53%, 44% 100%, 0 100%);
+}
+
+.top-navbar .field{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 15px;
+    width: 50%;
+    height: 100%;
+    background-color: #fff;
+}
+
+.top-navbar .field.left{
+    border-bottom-left-radius: 15px;
+}
+
+.top-navbar .field.right{
+    border-bottom-right-radius: 15px;
+}
+
+.top-navbar .title-field{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 20%;
+    color: #fff;
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.top-navbar .icon{
+    font-size: 25px;
+    font-weight: 500;
+    color: black;
+    cursor: pointer;
+}
+
+
+.gem{
+    position: absolute;
+    bottom: -72px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 80px;
+    color: #000814;
+    z-index: 99;
+    cursor: pointer;
+    transition: all 0.3s linear;
+}
+
+.gem:hover{
+    color: #fff;
+}

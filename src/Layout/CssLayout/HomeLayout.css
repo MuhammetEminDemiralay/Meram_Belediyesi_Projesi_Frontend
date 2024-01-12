@@ -1,16 +1,8 @@
-.wrapper{
-    position: relative;
-}
-
 .wrapper .navbar{
+    padding: 0;
     width: 100%;
     position: fixed;
-}
-
-.home-container{
-    min-height: 100vh;
-    max-height: 100vh;
-    background-color: #87f031;
+    z-index: 100;
 }
 
 .outlet-container{
