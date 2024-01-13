@@ -1,6 +1,10 @@
+import { useNavigate } from 'react-router-dom'
 import './CssComponent/Navbar.css'
 
 function Navbar() {
+
+    const navi = useNavigate();
+
     return (
         <div className='navbar-container'>
             <i className="bi bi-gem gem"></i>
@@ -12,8 +16,8 @@ function Navbar() {
                     MERAM
                 </div>
                 <div className="field right">
-                    <i className="bi bi-shop icon"></i>
                     <i className='bx bx-log-in-circle icon'></i>
+                    <i className="bi bi-shop icon" onClick={() => navi("e-meram/products")}></i>
                 </div>
             </div>
         </div>

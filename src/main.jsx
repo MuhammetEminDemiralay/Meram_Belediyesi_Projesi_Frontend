@@ -9,7 +9,8 @@ import 'boxicons/css/boxicons.min.css'
 import 'boxicons/dist/boxicons.js'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import { store } from './Redux/store.js'
+import store from './Redux/store.js'
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <Provider store={store}>

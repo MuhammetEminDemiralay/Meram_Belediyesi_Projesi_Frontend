@@ -1,54 +1,30 @@
 import { useDispatch, useSelector } from 'react-redux'
 import './CssComponents/Products.css'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { fetchAllProducts } from '../../Redux/Slices/ProductSlicer'
-import { postToApi } from '../../Redux/Slices/ProductSlicer'
+import { NavLink } from 'react-router-dom'
+
 
 
 function Products() {
 
-    const { products } = useSelector(state => state.products);
     const dispatch = useDispatch();
+    const products = useSelector(state => state.product.products);
 
     useEffect(() => {
-        const fetchData = async () => {
-          const response = await fetchAllProducts();
-          console.log(response);
-        };
-        fetchData();
-    },[])
-
-    useEffect(() => {
-
-    }, [])
-
-    const emtyModel = {
-        userId : 1,
-        categoryId : 1,
-        productName : "Muhammet",
-        unitPrice : 10,
-        unitsInStock : 10,
-        description : "Bilmiyorum"
-    }
-
-    function productHandle(){
-        dispatch(postToApi({ data : emtyModel })).then(() => {
-            console.log(emtyModel);
-            console.log('Post işlemi tamamlandı!');
-          });
-    }
+        dispatch(fetchAllProducts())
+    }, [dispatch])
 
     return (
-        <>
+        <div>
             <ul>
-                {products && 
-                    products.map(product => (
-                        <li key={product.id}>{product.productName}</li>
+                {
+                    products?.map(product => (
+                        <li key={product.id}>{product.id} - {product.productName}</li>
                     ))
                 }
             </ul>
-            <button onClick={productHandle}>Yükle</button>
-        </>
+        </div>
     )
 }
 

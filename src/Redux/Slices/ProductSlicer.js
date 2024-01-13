@@ -1,35 +1,49 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 
-export const fetchAllProducts = async () => {
+export const fetchAllProducts = createAsyncThunk('get/getProduct', async () => {
     const response = await fetch('https://localhost:44358/api/Product/getall')
     const datas = await response.json();
-    const data = datas.data;
-    console.log(data);
-    return data;
-}
-
-export const postToApi = createAsyncThunk('product/fetchPost', async (postData) => {
+    return datas.data
+})
+export const postProduct = createAsyncThunk('post/postProduct', async (productData) => {
     const response = await fetch('https://localhost:44358/api/Product/add', {
-        method : "POST",
-        body : JSON.stringify(postData)
-    })
-
-    return response.json();
-})
-
-const productSlice = createSlice({
-    name : "product",
-    initialState : {
-        products : []
-    },
-    reducers : {},
-    extraReducer : {
-        [fetchAllProducts.fulfilled] : (state, action) => {
-            state.products = action.payload;
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
         },
-        [postToApi.fulfilled] : ()
-    }
+        body: JSON.stringify(productData)
+    })
+    const data = await response.json();
+    console.log(data.success);
+    return data
 })
 
-export default productSlice.reducer
+const productReducer = createSlice({
+    name: "product",
+    initialState: {
+        products: [],
+        message: "",
+        success: true,
+        loading : false
+    },
+    reducers: {},
+    extraReducers: (builder) => {
+        builder
+            .addCase(postProduct.pending, (state, action) => {
+              state.loading = true;
+            })
+            .addCase(postProduct.fulfilled, (state, action) => {
+                state.loading = true
+                state.products = [...state.products, action.payload];
+            })
+            .addCase(fetchAllProducts.fulfilled, (state, action) => {
+                state.loading = false
+                state.products = action.payload;
+            })
+
+    },
+});
+
+
+export default productReducer.reducer
