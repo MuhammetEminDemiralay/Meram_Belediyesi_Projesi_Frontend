@@ -1,4 +1,4 @@
-import './CssComponent/BossContact.css'
+import './BossContact.css'
 
 export default function BossContact() {
 

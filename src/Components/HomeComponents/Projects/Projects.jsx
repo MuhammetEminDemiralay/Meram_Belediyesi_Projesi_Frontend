@@ -1,4 +1,4 @@
-import './CssComponent/Projects.css'
+import './Projects.css'
 
 function Projects() {
 

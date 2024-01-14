@@ -1,4 +1,4 @@
-import './CssComponent/Contact.css'
+import './Contact.css'
 
 function Contact(){
 

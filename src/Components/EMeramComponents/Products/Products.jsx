@@ -1,8 +1,7 @@
+import './Products.css'
 import { useDispatch, useSelector } from 'react-redux'
-import './CssComponents/Products.css'
 import { useEffect, useState } from 'react'
-import { fetchAllProducts } from '../../Redux/Slices/ProductSlicer'
-import { NavLink } from 'react-router-dom'
+import { fetchAllProducts } from '../../../Redux/Slices/ProductSlicer'
 
 
 
@@ -13,7 +12,7 @@ function Products() {
 
     useEffect(() => {
         dispatch(fetchAllProducts())
-    }, [dispatch])
+    })
 
     return (
         <div>

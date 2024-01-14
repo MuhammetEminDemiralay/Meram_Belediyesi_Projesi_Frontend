@@ -1,9 +1,9 @@
 import { Outlet } from "react-router-dom"
-import Navbar from "../Components/HomeComponents/Navbar"
+import Navbar from "../Components/HomeComponents/Navbar/Navbar"
 import './CssLayout/HomeLayout.css'
-import BossContact from "../Components/HomeComponents/BossContact"
-import News from "../Components/HomeComponents/News"
-import Projects from "../Components/HomeComponents/Projects"
+import BossContact from "../Components/HomeComponents/BossContact/BossContact"
+import News from "../Components/HomeComponents/News/News"
+import Projects from "../Components/HomeComponents/Projects/Projects"
 
 
 

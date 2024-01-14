@@ -1,11 +1,20 @@
-import './CssComponent/Home.css'
+import { useSelector } from 'react-redux'
+import './Home.css'
+
+
+
 
 function Home() {
+    
+    const {currentUser, isAuth} = useSelector(state => state.auth);
+    
     return (
         <div className="home-container">
             <div className="container p-0">
                 <div className="home">
                     <h1>home</h1>
+                    {currentUser.id}
+                    
                 </div>
             </div>
         </div>

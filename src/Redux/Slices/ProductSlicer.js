@@ -15,7 +15,6 @@ export const postProduct = createAsyncThunk('post/postProduct', async (productDa
         body: JSON.stringify(productData)
     })
     const data = await response.json();
-    console.log(data.success);
     return data
 })
 

@@ -1,4 +1,4 @@
-import './CssComponent/News.css'
+import './News.css'
 
 function News() {
 

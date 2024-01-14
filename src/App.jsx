@@ -2,13 +2,14 @@ import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import HomeLayout from './Layout/HomeLayout'
 import EMeramLayout from './Layout/EMeramLayout'
-import Products from './Components/EMeramComponents/Products'
-import Home from './Components/HomeComponents/Home'
-import Contact from './Components/HomeComponents/Contact'
 import AuthLayout from './Layout/AuthLayout'
-import Login from './Components/AuthComponents/Login'
-import Register from './Components/AuthComponents/Register'
-import ProductAdd from './Components/EMeramComponents/ProductAdd'
+import Home from './Components/HomeComponents/Home/Home'
+import Contact from './Components/HomeComponents/Contact/Contact'
+import Login from './Components/AuthComponents/Login/Login'
+import Register from './Components/AuthComponents/Register/Register'
+import ProductAdd from './Components/EMeramComponents/ProductAdd/ProductAdd'
+import Products from './Components/EMeramComponents/Products/Products'
+
 
 
 

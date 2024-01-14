@@ -1,9 +1,13 @@
 import { useNavigate } from 'react-router-dom'
-import './CssComponent/Navbar.css'
+import './Navbar.css'
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 function Navbar() {
 
+    const { currentUser, isAuth } = useSelector(state => state.auth);
     const navi = useNavigate();
+
 
     return (
         <div className='navbar-container'>
@@ -16,8 +20,9 @@ function Navbar() {
                     MERAM
                 </div>
                 <div className="field right">
-                    <i className='bx bx-log-in-circle icon'></i>
-                    <i className="bi bi-shop icon" onClick={() => navi("e-meram/products")}></i>
+
+                    <i className={`bi bi-shop icon ${isAuth ? "actice" : "noActive"}`} onClick={() => {isAuth &&  navi("e-meram/products")}}></i>
+                    <i className='bx bx-log-in-circle icon' onClick={() => navi("auth/login")}></i>
                 </div>
             </div>
         </div>
