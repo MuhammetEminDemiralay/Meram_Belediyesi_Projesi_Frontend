@@ -9,6 +9,7 @@ import Login from './Components/AuthComponents/Login/Login'
 import Register from './Components/AuthComponents/Register/Register'
 import ProductAdd from './Components/EMeramComponents/ProductAdd/ProductAdd'
 import Products from './Components/EMeramComponents/Products/Products'
+import CreateCompany from './Components/EMeramComponents/CreateCompany/CreateCompany'
 
 
 
@@ -27,8 +28,9 @@ function App() {
         </Route>
 
         <Route path='e-meram/' element={<EMeramLayout />}>
+          <Route index={true} element={<Products />} />
           <Route path='productadd' element={<ProductAdd />} />
-          <Route path="products" element={<Products />} />
+          <Route path='createcompany' element={<CreateCompany />} />
         </Route>
 
         <Route path='/auth/' element={<AuthLayout />}>

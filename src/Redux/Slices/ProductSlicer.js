@@ -6,6 +6,7 @@ export const fetchAllProducts = createAsyncThunk('get/getProduct', async () => {
     const datas = await response.json();
     return datas.data
 })
+
 export const postProduct = createAsyncThunk('post/postProduct', async (productData) => {
     const response = await fetch('https://localhost:44358/api/Product/add', {
         method: "POST",

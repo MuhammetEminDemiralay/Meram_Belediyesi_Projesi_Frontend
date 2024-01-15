@@ -1,7 +1,7 @@
 import './ProductAdd.css'
 import { useDispatch, useSelector } from "react-redux"
 import { postProduct } from "../../../Redux/Slices/ProductSlicer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
  
 
@@ -22,6 +22,10 @@ function ProductAdd(){
         unitsInStock: 0,
         description: 'string',
     });
+    
+    useEffect(() => {
+        console.log(products);
+    })
 
     function productHandle() {
         dispatch(postProduct(productData))

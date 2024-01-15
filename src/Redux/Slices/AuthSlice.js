@@ -10,13 +10,25 @@ import {
 export const login = createAsyncThunk("auth/login", async (user) => {
     const response = await fetch('https://localhost:44358/api/Auth/login', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
+        headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(user),
     })
+    console.log(response);
     const datas = await response.json();
     return datas.data
+});
+
+
+export const register = createAsyncThunk("auth/register", async (user)=> {
+    const response = await fetch('https://localhost:44358/api/Auth/register', {
+        method : 'POST',
+        headers : {'Content-Type' : 'Application/json'},
+        body : JSON.stringify(user),
+    })
+    console.log(response);
+    const datas = await response.json()
+    console.log(datas);
+    return datas.data 
 });
 
 
@@ -61,6 +73,7 @@ export const login = createAsyncThunk("auth/login", async (user) => {
             currentUser: {},
             isAuth: false,
             isAdmin: false,
+            errorMessage : ""
         },
         reducers: {
             logout: (state) => {
@@ -73,6 +86,7 @@ export const login = createAsyncThunk("auth/login", async (user) => {
                     state.currentUser = {};
                     state.isAuth = false;
                     state.isAdmin = false;
+                    
                     return;
                 }
                 const loggedInUser = getUser(token);

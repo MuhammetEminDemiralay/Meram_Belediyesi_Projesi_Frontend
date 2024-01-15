@@ -7,7 +7,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
 }
 
 
@@ -21,7 +20,7 @@
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     position: relative;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 56% 100%, 53% 53%, 47% 53%, 44% 100%, 0 100%);
+    
 }
 
 .top-navbar .field{
@@ -42,7 +41,56 @@
 .top-navbar .field.right{
     border-bottom-right-radius: 15px;
     border-top-left-radius: 15px;
+    position: relative;
 }
+
+.field.right .top{
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+    justify-content: center;
+    width: 100%;
+}
+
+.field.right .bottom{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+    position: absolute;
+    top: 65px;
+    width: 100%;
+    height: 120px;
+    border-radius: 5px;
+    border: 2px solid black;
+    background-color: #fff;
+    z-index: 100;
+}
+
+.field.right .bottom.dropdown-active{
+    display: none;
+}
+
+.bottom .log{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.bottom .log:hover{
+    background-color: blue;
+}
+
+.profil{
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    background-color: red;
+}
+
 
 .top-navbar .title-field{
     display: flex;
@@ -60,8 +108,14 @@
     font-weight: 500;
     color: black;
     cursor: pointer;
+    transition: all 0.1s linear;
 }
 
+.top-navbar .icon:hover{
+    font-size: 30px;
+    font-weight: 600;
+    color: red;
+}
 
 .gem{
     position: absolute;
@@ -69,12 +123,13 @@
     left: 50%;
     transform: translateX(-50%);
     font-size: 80px;
-    color: #000814;
-    z-index: 99;
+    color: #fff;
+    z-index: 90;
     cursor: pointer;
     transition: all 0.3s linear;
+    text-shadow: 0 10px 10px #95ecff;
 }
 
 .gem:hover{
-    color: #fff;
+    text-shadow: 0 10px 10px #4876ff;
 }

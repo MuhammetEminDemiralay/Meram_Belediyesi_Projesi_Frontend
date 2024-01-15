@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux'
 import './Home.css'
+import { useEffect } from 'react';
 
 
 
@@ -7,6 +8,9 @@ import './Home.css'
 function Home() {
     
     const {currentUser, isAuth} = useSelector(state => state.auth);
+    useEffect(() => {
+        console.log(currentUser);   
+    })
     
     return (
         <div className="home-container">
