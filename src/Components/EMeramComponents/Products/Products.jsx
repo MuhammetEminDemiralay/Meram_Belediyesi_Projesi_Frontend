@@ -10,12 +10,24 @@ import { NavLink, useNavigate } from 'react-router-dom';
 function Products() {
 
     const dispatch = useDispatch();
-    const products = useSelector(state => state.product.products);
+    const {products} = useSelector(state => state.product);
+    const user = useSelector(state => state.auth.currentUser)
     const navi = useNavigate();
+    const [company, setCompany] = useState({});
+
 
     useEffect(() => {
         dispatch(fetchAllProducts())
-    })
+        companyExist()
+    }, [user])
+
+    const companyExist = async () => {
+        if (user.id) {
+            const response = await fetch(`https://localhost:44358/api/Company/getcompany?userId=${user.id}`)
+            const datas = await response.json()
+            setCompany(datas)
+        }
+    }
 
     return (
         <div>
@@ -26,7 +38,7 @@ function Products() {
                     ))
                 }
             </ul>
-            <button onClick={() => navi("/e-meram/createcompany")}>Create Company</button>
+            <button onClick={() => (company.data ? navi("mycompany") : navi("createcompany"))}>Şirket oluştur</button>
         </div>
     )
 }

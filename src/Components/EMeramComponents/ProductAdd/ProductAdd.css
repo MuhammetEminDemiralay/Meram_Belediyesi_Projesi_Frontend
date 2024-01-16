@@ -1,0 +1,13 @@
+.input-add-box{
+    display: flex;
+    flex-direction: column;
+    row-gap: 3px;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.input-add-box input,
+.input-add-box select,
+.input-add-box button{
+    height: 35px;
+}

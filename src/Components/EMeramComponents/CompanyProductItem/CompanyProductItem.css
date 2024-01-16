@@ -1,0 +1,55 @@
+.company-product{
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin-bottom: 8px;
+    height: 120px;
+    position: relative;
+    border-radius: 5px;
+}
+.company-product .product-company-list-img{
+    width: 120px;
+    height: 100%;
+}
+
+.company-product .info{
+    padding-left: 10px;
+}
+
+.company-product li{
+    font-size: 15px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    color: rgb(255, 0, 0);
+}
+
+.company-product b{
+    color: #000814;
+}
+
+.company-product .btn-box{
+    position: absolute;
+    display: flex;
+    column-gap: 10px;
+    right: 10px;
+}
+
+.btn-box .icon{
+    font-size: 25px;
+    padding: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.1s linear;
+    border-radius: 4px;
+}
+
+.btn-box .icon:hover{
+    background-color: #000814;
+    color: #fff;
+}
+
+
+
+
+
