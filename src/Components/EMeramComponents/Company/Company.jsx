@@ -15,7 +15,7 @@ function Company() {
     const { currentUser } = useSelector(state => state.auth)
     const allProducts = useSelector(state => state.product)
     const [products, setProducts] = useState([]);
-    const [product, setProduct] = useState();
+    const [product, setProductModel] = useState();
 
 
     useEffect(() => {
@@ -42,7 +42,7 @@ function Company() {
             unitsInStock: model.unitsInStock,
             description: model.description
         }
-        setProduct(newModel);
+        setProductModel(newModel);
     }
 
     function deleteProduct(productId) {
@@ -66,10 +66,10 @@ function Company() {
                 <div className="row company-row">
                     <div className="col-4 company-col add">
                         <div className='company-image-add'>
-                            <ProductImageAdd />
+                            <ProductImageAdd productUpdateModel={product}/>
                         </div>
                         <div className='company-body-add'>
-                            <ProductAdd productUpdateModel={product} userId={currentUser.id} />
+                            <ProductAdd setProductUpdateModel={setProductModel} productUpdateModel={product} userId={currentUser.id} />
                         </div>
 
                     </div>

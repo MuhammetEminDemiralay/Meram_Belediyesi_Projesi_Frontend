@@ -1,14 +1,14 @@
 import './ProductAdd.css'
-import { postProduct } from "../../../Redux/Slices/ProductSlicer";
+import { postProduct, updateProduct } from "../../../Redux/Slices/ProductSlicer";
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 
-function ProductAdd({ userId, productUpdateModel }) {
+function ProductAdd({ userId, productUpdateModel, setProductUpdateModel }) {
 
     const dispatch = useDispatch();
     const productModel = {
-        id: undefined,
+        id: productUpdateModel?.id,
         userId: 0,
         categoryId: 0,
         companyId: 0,
@@ -26,7 +26,6 @@ function ProductAdd({ userId, productUpdateModel }) {
             const response = await fetch('https://localhost:44358/api/Category/getall')
             const datas = await response.json();
             setCategory(datas.data)
-            console.log(productUpdateModel);
             return datas.data;
         }
         getAllCategories();
@@ -39,48 +38,65 @@ function ProductAdd({ userId, productUpdateModel }) {
             }
         }
         getCompany()
-    }, [userId, productUpdateModel])
+        setProductUpdateModel(productUpdateModel)
+    }, [userId, productUpdateModel, product, setProductUpdateModel])
 
-    function handleSubmit(e) {
+    function productHandle(e) {
         e.preventDefault();
-        dispatch(postProduct(product))
+        const { id, ...newProduct } = product
+        dispatch(postProduct(newProduct))
+    }
+
+    function updateHandle(e) {
+        e.preventDefault();
+        dispatch(updateProduct(product))
+        setProductUpdateModel(prev => undefined)
     }
 
     function inputChange(e) {
-        setProduct(prev => (
-            { ...prev, [e.target.id]: e.target.value, companyId: company.id, userId: userId }
-        ))
+        if (productUpdateModel) {
+            setProduct(productUpdateModel)
+            setProductUpdateModel(undefined)
+        } else {
+            setProduct(prev => (
+                { ...prev, [e.target.id]: e.target.value, companyId: company.id, userId: userId, id: product?.id }
+            ))
+        }
+    }
+
+    function handleProductUpdateModel() {
+        setProduct(productModel)
     }
 
     return (
         <div className='company-add-wrapper'>
-            <form onSubmit={handleSubmit}>
+            <i className='bx bx-plus icon' onClick={handleProductUpdateModel}></i>
+            <form onSubmit={product.id ? updateHandle : productHandle}>
                 <div className="input-add-box">
                     <label htmlFor="productName"><b>Ürün adı</b></label>
-                    <input value={productUpdateModel?.productName} onChange={inputChange} type="text" placeholder="araba" id="productName" />
+                    <input value={product?.productName} onChange={inputChange} type="text" placeholder="araba" id="productName" />
                 </div>
                 <div className="input-add-box">
                     <label htmlFor="category"><b>Kategori</b></label>
                     <select id='categoryId' onChange={inputChange}>
                         {
                             category.map(category => (
-                                
-                                <option selected={productUpdateModel && productUpdateModel.categoryId} key={category.id} value={category.categoryId}>{category.categoryName}</option>
+                                <option key={category.id} value={category.id}>{category.categoryName}</option>
                             ))
                         }
                     </select>
                 </div>
                 <div className="input-add-box">
                     <label htmlFor="unitPrice"><b>Birim fiyat</b></label>
-                    <input onChange={inputChange} type="number" placeholder="10" id="unitPrice" />
+                    <input value={product?.unitPrice} onChange={inputChange} type="number" placeholder="10" id="unitPrice" />
                 </div>
                 <div className="input-add-box">
                     <label htmlFor="unitsInStock"><b>Stok Miktarı</b></label>
-                    <input onChange={inputChange} type="number" placeholder="6" id="unitsInStock" />
+                    <input value={product?.unitsInStock} onChange={inputChange} type="number" placeholder="6" id="unitsInStock" />
                 </div>
                 <div className="input-add-box">
                     <label htmlFor="description"><b>Açıklama</b></label>
-                    <input onChange={inputChange} type="text" placeholder="açıklama" id="description" />
+                    <input value={product?.description} onChange={inputChange} type="text" placeholder="açıklama" id="description" />
                 </div>
                 <div className="input-add-box">
                     <button type='submit' className="product-add-btn">Giriş</button>

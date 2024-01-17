@@ -1,3 +1,7 @@
+.company-add-wrapper{
+    position: relative;
+}
+
 .input-add-box{
     display: flex;
     flex-direction: column;
@@ -10,4 +14,14 @@
 .input-add-box select,
 .input-add-box button{
     height: 35px;
+}
+
+
+.company-add-wrapper .icon{
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 25px;
 }

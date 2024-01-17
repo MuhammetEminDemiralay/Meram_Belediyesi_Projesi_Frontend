@@ -8,9 +8,10 @@
     position: relative;
     border-radius: 5px;
 }
-.company-product .product-company-list-img{
+.company-product .product-company-img{
     width: 120px;
     height: 100%;
+    object-fit: cover;
 }
 
 .company-product .info{
