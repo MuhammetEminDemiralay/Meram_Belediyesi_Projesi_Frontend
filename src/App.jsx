@@ -11,6 +11,7 @@ import ProductAdd from './Components/EMeramComponents/ProductAdd/ProductAdd'
 import Products from './Components/EMeramComponents/Products/Products'
 import CreateCompany from './Components/EMeramComponents/CreateCompany/CreateCompany'
 import Company from './Components/EMeramComponents/Company/Company'
+import ProductDetail from './Components/EMeramComponents/ProductDetail/ProductDetail'
 
 
 
@@ -32,6 +33,7 @@ function App() {
           <Route index={true} element={<Products />} />
           <Route path='createcompany' element={<CreateCompany />} />
           <Route path='mycompany' element={<Company />} />
+          <Route path='product-detail/:id' element={<ProductDetail/>}/>
         </Route>
 
         <Route path='/auth/' element={<AuthLayout />}>

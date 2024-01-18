@@ -1,27 +1,88 @@
-.company-add-wrapper{
+.company-add-wrapper {
     position: relative;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 3px solid #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
 }
 
-.input-add-box{
+.company-add-wrapper form{
+    margin-top: 15px;
+}
+
+.input-add-box {
     display: flex;
     flex-direction: column;
     row-gap: 3px;
     width: 100%;
     margin-bottom: 8px;
+    outline: none;
 }
 
 .input-add-box input,
 .input-add-box select,
-.input-add-box button{
+.input-add-box button {
+    border: thin solid black;
+    height: 35px;
+    border-radius: 4px;
+
+}
+
+.input-add-box button {
+    margin-top: 10px;
+    border: thin solid black;
+    background-color: #ef233c;
+    transition: all 0.2s linear;
+    color: #fff;
     height: 35px;
 }
 
+.input-add-box button:hover {
+    background-color: #d90429;
+}
 
-.company-add-wrapper .icon{
+.input-add-box input{
+    padding: 4px;
+    transition: all 0.2s linear;
+}
+
+.input-add-box input:focus{
+    background-color: rgb(0, 179, 255);
+    color: #000814;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.company-add-wrapper .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 4px;
+    right: 4px;
     cursor: pointer;
     font-weight: 500;
     font-size: 25px;
+    width: 35px;
+    height: 35px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: all 0.2s ease;
+}
+
+.company-add-wrapper .icon:hover{
+    background-color: #000814;
+    color: #fff;
+}
+
+.company-add-wrapper .product-update-or-add{
+    position: absolute;
+    left: 50%;
+    top: 5px;
+    transform: translateX(-50%);
+    font-weight: 700;
+    color: #000814;
+    text-shadow: 0 3px #fff;
 }

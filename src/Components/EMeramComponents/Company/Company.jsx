@@ -6,6 +6,7 @@ import CompanyProducts from '../CompanyProducts/CompanyProducts';
 import ProductAdd from '../ProductAdd/ProductAdd';
 import ProductImageAdd from '../ProductImageAdd/ProductImageAdd';
 import { removeProduct } from '../../../Redux/Slices/ProductSlicer';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -16,17 +17,32 @@ function Company() {
     const allProducts = useSelector(state => state.product)
     const [products, setProducts] = useState([]);
     const [product, setProductModel] = useState();
+    const [productActive, setProductActive] = useState(false);
+    const [company, setCompany] = useState();
+    const navi = useNavigate()
 
 
     useEffect(() => {
+        if (currentUser.id) {
+            companyExist()
+        }
         userProducts();
     }, [currentUser, allProducts, product])
+
+    const companyExist = async () => {
+        if (currentUser.id) {
+            const response = await fetch(`https://localhost:44358/api/Company/getcompany?userId=${currentUser.id}`)
+            const datas = await response.json()
+            setCompany(datas.data)
+            return datas
+        }
+    }
 
     const userProducts = async () => {
         if (currentUser.id) {
             const response = await fetch(`https://localhost:44358/api/Product/getproductsbyuserid?userId=${currentUser.id}`)
             const datas = await response.json()
-            setProducts(datas.data)            
+            setProducts(datas.data)
         }
     }
 
@@ -57,7 +73,9 @@ function Company() {
             unitsInStock: model.unitsInStock,
             description: model.description
         }
-        dispatch(removeProduct(newModel))
+        if (window.confirm("Silmek istediğine emin misin?")) {
+            dispatch(removeProduct(newModel))
+        }
     }
 
     return (
@@ -66,15 +84,23 @@ function Company() {
                 <div className="row company-row">
                     <div className="col-4 company-col add">
                         <div className='company-image-add'>
-                            <ProductImageAdd productUpdateModel={product}/>
+                            <ProductImageAdd productUpdateModel={product} />
                         </div>
                         <div className='company-body-add'>
-                            <ProductAdd setProductUpdateModel={setProductModel} productUpdateModel={product} userId={currentUser.id} />
+                            <ProductAdd setProductActive={setProductActive} productActive={productActive} setProductUpdateModel={setProductModel} productUpdateModel={product} userId={currentUser.id} />
                         </div>
 
                     </div>
                     <div className="col-8 company-col list">
-                        <CompanyProducts updateProduct={updateProduct} deleteProduct={deleteProduct} products={products} />
+                        <div className='company-product-navbar'>
+                            <i className="bi bi-boxes box"></i>
+                            <h1>{company?.companyName}</h1>
+                            <div className="route-box">
+                                <i className='bx bxs-store icon' onClick={() => navi("/e-meram")}></i>
+                                <i className="bi bi-house-fill icon" onClick={() => navi("/")}></i>
+                            </div>
+                        </div>
+                        <CompanyProducts productActive={productActive} setProductActive={setProductActive} updateProduct={updateProduct} deleteProduct={deleteProduct} products={products} />
                     </div>
                 </div>
             </div>

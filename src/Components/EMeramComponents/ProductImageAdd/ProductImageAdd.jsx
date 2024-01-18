@@ -1,47 +1,48 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './ProductImageAdd.css'
 
 function ProductImageAdd({ productUpdateModel }) {
 
-
-    const [image, setImage] = useState([]);
+    const imageUrl = `https://localhost:44358/Images/`
+    const noImage = `noImage.jpg`
+    const [image, setImage] = useState();
+    const [selectedImage, setSelectedImage] = useState();
 
     function handleSubmit(e) {
         e.preventDefault();
-
         const formData = new FormData();
-        for (let i = 0; i < image.files.length; i++) {
-            formData.append('files', image.files[i]);
-        }
+        formData.append('files', image[0]);
         formData.append('productId', `${productUpdateModel?.id}`);
-        formData.append('ProductImagePath', 'ae2abe2f13b34e43b63f2f4e10fda537.jpg')
+        formData.append('productImagePath', image[0].name)
         const imageAdd = async () => {
             const response = await fetch('https://localhost:44358/api/ProductImage/add', {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(formData)
+                body: formData
             })
             const datas = await response.json();
-            console.log(response);
-            console.log(datas);
-            return datas
+            return datas.data
         }
         imageAdd();
+        window.location.reload()
     }
 
     function inputChange(e) {
-        setImage([e.target.files])
+        setImage(prev => e.target.files)
+        const fileUrl = URL.createObjectURL(e.target.files[0]);
+        setSelectedImage(fileUrl)
     }
 
     return (
-        <>
+        <div className='wrapper-selected-image'>
+            <div className="selected-image-box">
+                <img src={selectedImage ? selectedImage : imageUrl + noImage} width={50} className='selected-image' />
+            </div>
 
-            <form onSubmit={handleSubmit}>
-                {productUpdateModel?.id}
+            <form className='image-add-form' onSubmit={handleSubmit}>
                 <input onChange={inputChange} type="file" />
-                <button type='submit'>Resim ekle</button>
+                <button className='image-add-btn' type='submit'>Resim ekle</button>
             </form>
-        </>
+        </div>
     )
 }
 

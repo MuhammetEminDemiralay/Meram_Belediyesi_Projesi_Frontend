@@ -1,0 +1,44 @@
+.wrapper-selected-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 120px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    border: 3px solid #fff;
+
+}
+
+.wrapper-selected-image .selected-image-box {
+    min-width: 120px;
+    height: 120px;
+}
+
+.wrapper-selected-image .selected-image {
+    height: 100%;
+    width: 100%;
+    border: 3px solid rgb(255, 255, 255);
+    object-fit: cover;
+    border-radius: 5px 0 0 5px;
+}
+
+.wrapper-selected-image .image-add-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 5px;
+    height: 100%;
+}
+
+.image-add-form .image-add-btn{
+    border: thin solid black;
+    background-color: #ef233c;
+    transition: all 0.2s linear;
+    color: #fff;
+    height: 30px;
+}
+
+.image-add-form .image-add-btn:hover{
+    background-color: #d90429;
+}

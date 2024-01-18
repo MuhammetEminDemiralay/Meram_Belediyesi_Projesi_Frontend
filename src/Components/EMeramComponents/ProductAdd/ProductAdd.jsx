@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 
-function ProductAdd({ userId, productUpdateModel, setProductUpdateModel }) {
+function ProductAdd({ userId, productUpdateModel, setProductUpdateModel, setProductActive, productActive}) {
 
     const dispatch = useDispatch();
     const productModel = {
@@ -39,6 +39,7 @@ function ProductAdd({ userId, productUpdateModel, setProductUpdateModel }) {
         }
         getCompany()
         setProductUpdateModel(productUpdateModel)
+
     }, [userId, productUpdateModel, product, setProductUpdateModel])
 
     function productHandle(e) {
@@ -61,16 +62,19 @@ function ProductAdd({ userId, productUpdateModel, setProductUpdateModel }) {
             setProduct(prev => (
                 { ...prev, [e.target.id]: e.target.value, companyId: company.id, userId: userId, id: product?.id }
             ))
+
         }
     }
 
     function handleProductUpdateModel() {
-        setProduct(productModel)
+        setProduct(productModel);
+        setProductActive(false)
     }
 
     return (
         <div className='company-add-wrapper'>
             <i className='bx bx-plus icon' onClick={handleProductUpdateModel}></i>
+            <h3 className='product-update-or-add'>{ productActive ? "Ürün Güncelle" : "Ürün Ekle"}</h3>
             <form onSubmit={product.id ? updateHandle : productHandle}>
                 <div className="input-add-box">
                     <label htmlFor="productName"><b>Ürün adı</b></label>
@@ -99,7 +103,7 @@ function ProductAdd({ userId, productUpdateModel, setProductUpdateModel }) {
                     <input value={product?.description} onChange={inputChange} type="text" placeholder="açıklama" id="description" />
                 </div>
                 <div className="input-add-box">
-                    <button type='submit' className="product-add-btn">Giriş</button>
+                    <button type='submit' className="product-add-btn">{ productActive ? "Güncelle" : "Ekle"}</button>
                 </div>
             </form>
         </div>
