@@ -20,7 +20,7 @@ function ProductCard({ product }) {
                 </div>
                 <div className="product-btn-box">
                     <i className="bi bi-cart3"></i>
-                    <button onClick={() => navi(`/e-meram/product-detail/${product?.id}`)}>detay</button>
+                    <button onClick={() => navi(`/e-meram/product-detail/${product?.id}`)}>Detay</button>
                 </div>
             </div>
         </div>

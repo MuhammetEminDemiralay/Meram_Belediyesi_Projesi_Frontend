@@ -1,0 +1,53 @@
+.card-box{
+    width: 500px;
+    max-height: 175px;
+    min-height: 175px;
+    height: 100%;
+    display: flex;
+    border-radius: 10px 0 0 10px;
+    background-color: #ffffff6b;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.card-box:hover{
+    background-color: darkturquoise;
+}
+
+.card-box .newspaper-info{
+    position: absolute;
+    right: 6px;
+    top: 6px;
+    font-size: 32px;
+    visibility: hidden;
+    color: #fff;
+    text-shadow: 0 5px 10px #000814;
+    transition: all 0.2s linear;
+}
+
+.card-box .newspaper-info:hover{
+    color: #55ff00;
+}
+
+.card-box:hover .newspaper-info{
+    visibility: visible;
+}
+
+.card-box img{
+    object-fit: cover;
+    max-width: 175px;
+    min-height: 175px;
+    border-radius: 10px 0 0 10px;
+}
+
+.card-box .newspaper-body{
+    padding: 15px;
+}
+
+.newspaper-body .newspaper-description{
+    word-break: break-all;
+    
+}

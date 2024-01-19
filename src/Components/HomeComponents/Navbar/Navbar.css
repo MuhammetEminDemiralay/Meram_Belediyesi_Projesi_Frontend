@@ -1,5 +1,4 @@
-
-.navbar-container{
+.navbar-container {
     padding: 0;
     margin: 0;
     width: 100%;
@@ -10,7 +9,7 @@
 }
 
 
-.navbar-container .top-navbar{
+.navbar-container .top-navbar {
     padding: 7px;
     display: flex;
     align-items: center;
@@ -20,10 +19,10 @@
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     position: relative;
-    
+
 }
 
-.top-navbar .field{
+.top-navbar .field {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -33,18 +32,18 @@
     background-color: #fff;
 }
 
-.top-navbar .field.left{
+.top-navbar .field.left {
     border-bottom-left-radius: 15px;
     border-top-right-radius: 15px;
 }
 
-.top-navbar .field.right{
+.top-navbar .field.right {
     border-bottom-right-radius: 15px;
     border-top-left-radius: 15px;
     position: relative;
 }
 
-.field.right .top{
+.field.right .top {
     display: flex;
     align-items: center;
     column-gap: 15px;
@@ -52,7 +51,7 @@
     width: 100%;
 }
 
-.field.right .bottom{
+.field.right .bottom {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -60,39 +59,38 @@
     position: absolute;
     top: 65px;
     width: 100%;
-    height: 120px;
+    height: 80px;
     border-radius: 5px;
-    border: 2px solid black;
-    background-color: #fff;
+    border: 2px solid #fff;
     z-index: 100;
+    background-color: #4361ee;
 }
 
-.field.right .bottom.dropdown-active{
+.field.right .bottom.dropdown-active {
     display: none;
 }
 
-.bottom .log{
+.bottom .log {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100px;
-    border: 1px solid black;
+    width: 120px;
+    height: 35px;
+    border-radius: 6px;
+    border: 2px solid #fff;
+    background-color: #fff;
     cursor: pointer;
+    transition: all 0.2s linear;
+    font-size: 22px;
+    font-weight: 500;
 }
 
-.bottom .log:hover{
-    background-color: blue;
-}
-
-.profil{
-    width: 100%;
-    height: 100%;
-    border: 1px solid black;
-    background-color: red;
+.bottom .log:hover {
+    background-color: #06d6a0;
 }
 
 
-.top-navbar .title-field{
+.top-navbar .title-field {
     display: flex;
     justify-content: center;
     height: 100%;
@@ -103,7 +101,7 @@
     margin-bottom: 20px;
 }
 
-.top-navbar .icon{
+.top-navbar .icon {
     font-size: 25px;
     font-weight: 500;
     color: black;
@@ -111,13 +109,13 @@
     transition: all 0.1s linear;
 }
 
-.top-navbar .icon:hover{
+.top-navbar .icon:hover {
     font-size: 30px;
     font-weight: 600;
     color: red;
 }
 
-.gem{
+.gem {
     position: absolute;
     bottom: -72px;
     left: 50%;
@@ -130,6 +128,40 @@
     text-shadow: 0 10px 10px #95ecff;
 }
 
-.gem:hover{
+.gem:hover {
     text-shadow: 0 10px 10px #4876ff;
+}
+
+.profil-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.profil-box .profil-text{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.profil-box .profil-logout{
+    display: flex;
+    align-items: baseline;
+    column-gap: 8px;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.profil-box .profil-logout:hover i{
+    color: red;
+} 
+
+.profil-logout i{
+    color: #fff;
+    font-weight: 500;
+    font-size: 26px;
+    cursor: pointer;
 }

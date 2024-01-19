@@ -2,8 +2,9 @@ import { Outlet } from "react-router-dom"
 import Navbar from "../Components/HomeComponents/Navbar/Navbar"
 import './CssLayout/HomeLayout.css'
 import BossContact from "../Components/HomeComponents/BossContact/BossContact"
-import News from "../Components/HomeComponents/News/News"
 import Projects from "../Components/HomeComponents/Projects/Projects"
+import Work from "../Components/HomeComponents/Work/Work"
+import News from "../Components/HomeComponents/NewsFolder/News/News"
 
 
 
@@ -23,6 +24,7 @@ function HomeLayout() {
                 <BossContact />
                 <News/>
                 <Projects/>
+                <Work/>
             </div>
         </div>
     )

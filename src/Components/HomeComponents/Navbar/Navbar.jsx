@@ -1,7 +1,9 @@
 import { useNavigate } from 'react-router-dom'
 import './Navbar.css'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useRef, useState } from 'react';
+import { logout } from '../../../Redux/Slices/AuthSlice';
+
 
 function Navbar() {
 
@@ -9,10 +11,15 @@ function Navbar() {
     const [active, setActive] = useState(true);
     const navi = useNavigate();
     const fieldRef = useRef();
-
+    const dispatch = useDispatch();
 
     function handleDropdown() {
         setActive(active ? false : true)
+    }
+
+    function handleAuth(){
+        dispatch(logout())
+        console.log(isAuth);
     }
 
     return (
@@ -26,7 +33,7 @@ function Navbar() {
                     MERAM
                 </div>
                 <div className="field right">
-                    <div className='top'>                                                                    
+                    <div className='top'>
                         <i className={`bi bi-shop icon ${isAuth ? "actice" : "noActive"}`} onClick={() => { navi("e-meram") }}></i>
                         <i className="bi bi-person-circle icon" onClick={() => handleDropdown()}></i>
                     </div>
@@ -38,11 +45,13 @@ function Navbar() {
                             </>
                         )}
                         {isAuth && (
-                            <>
-                               <div className="profil profil-img">image</div>
-                               <div className="profil profil-text">description</div>
-                               <div className="profil profil-icon">logout</div>
-                            </>
+                            <div className='profil-box'>
+                                <div className="profil profil-text ">{currentUser.name}</div>
+                                <div onClick={handleAuth} className="profil profil-logout">
+                                    Çıkış yap
+                                    <i className="bi bi-door-open-fill"></i>
+                                </div>
+                            </div>
                         )}
                     </div>
                 </div>

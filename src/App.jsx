@@ -32,7 +32,7 @@ function App() {
         <Route path='e-meram/' element={<EMeramLayout />}>
           <Route index={true} element={<Products />} />
           <Route path='createcompany' element={<CreateCompany />} />
-          <Route path='mycompany' element={<Company />} />
+          <Route path='mycompany/:id' element={<Company />} />
           <Route path='product-detail/:id' element={<ProductDetail/>}/>
         </Route>
 

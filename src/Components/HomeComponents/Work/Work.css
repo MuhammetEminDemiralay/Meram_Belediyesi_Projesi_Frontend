@@ -1,6 +1,6 @@
-.news-container{
+.work-container{
     min-height: 100vh;
     padding: 60px 10px 10px 10px;
-    background-color: coral;
+    background-color: goldenrod;
     position: relative;
 }

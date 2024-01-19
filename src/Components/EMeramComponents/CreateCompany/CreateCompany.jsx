@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react'
 import './CreateCompany.css'
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 function CreateCompany() {
 
     const { currentUser } = useSelector(state => state.auth);
     const companyModel = { userId: currentUser.id, companyName: "" }
     const [company, setCompany] = useState(companyModel)
+    const navi = useNavigate();
 
     const createCompany = async () => {
         const response = await fetch('https://localhost:44358/api/Company/add', {
@@ -15,6 +17,9 @@ function CreateCompany() {
             body: JSON.stringify(company)
         })
         const data = await response.json()
+        if(data.success){
+            navi(`/e-meram/mycompany/${currentUser?.id}`)
+        }
         return data
     }
 
