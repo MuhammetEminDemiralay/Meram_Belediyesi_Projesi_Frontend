@@ -1,0 +1,15 @@
+.form-add{
+    z-index: 2;
+    width: 500px;
+}
+
+h1{
+    z-index: 2;
+}
+
+.input-add-box textarea{
+    width: 500px;
+    height: 400px;
+    border-radius: 10px;
+    padding: 5px;
+}

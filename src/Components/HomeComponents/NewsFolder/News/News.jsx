@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'react';
 import './News.css'
 import NewsCard from '../NewsCard/NewsCard';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
 
 function News() {
 
     const newspaper = "newspaper.jpg"
     const imageUrl = `https://localhost:44358/Images/`
-
+    const { currentUser } = useSelector(state => state.auth)
+    const navi = useNavigate()
     const [news, setNews] = useState([]);
 
     useEffect(() => {
@@ -17,21 +21,44 @@ function News() {
         const response = await fetch('https://localhost:44358/api/News/getall');
         const data = await response.json();
         setNews(data.data)
-        console.log(data.data);
+        console.log(currentUser);
         return data.data
     }
 
+    
+    function deleteItem(item){
+        const deleteNews = async (news) => {
+            console.log(item);
+            const response = await fetch('https://localhost:44358/api/News/delete', {
+                method: 'POST',
+                headers: { 'Content-Type': 'Application/json' },
+                body: JSON.stringify(item)
+            })
+            const data = await response.json()
+            return data
+        }
+        deleteNews()
+        window.location.reload();
+    }
+
+
+
+
     return (
-        <div className="news-container">
+        <div className="news-container ">
             <div className="container newspaper-container">
                 <img className='newspaper-paper' src={imageUrl + newspaper} alt="" />
                 <div className="newspaper-navbar">
                     <i className='bx bx-news'></i>
                     <span className='meram-newspaper'>Meram Gazetesi</span>
+                    {
+                        currentUser.role == "Editör" && <i onClick={() => navi("news-add")} className='bx bx-plus icon-edit'></i> 
+                    }
+                    
                 </div>
                 <ul className='newspaper-box'>
                     {
-                        news.map(item => <NewsCard key={item.id} item={item} />)
+                        news.map(item => <NewsCard deleteItem={deleteItem} key={item.id} item={item} />)
                     }
                 </ul>
             </div>

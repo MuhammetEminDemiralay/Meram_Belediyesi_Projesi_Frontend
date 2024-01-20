@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux'
 import './Home.css'
 import { useEffect } from 'react';
+import { Outlet } from 'react-router-dom';
 
 
 
@@ -12,8 +13,6 @@ function Home() {
         <div className="home-container">
             <div className="container p-0">
                 <div className="home">
-                    <h1>home</h1>
-                    {currentUser.id}
                 </div>
             </div>
         </div>
