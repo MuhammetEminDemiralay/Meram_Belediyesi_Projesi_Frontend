@@ -1,13 +1,39 @@
-.form-add{
-    z-index: 2;
+.works-add-container {
+    min-height: 100vh;
+    max-height: 100vh;
+    padding: 60px 10px 10px 10px;
+    position: relative;
+    padding: 0;
+}
+
+.works-add-container .work-add-container {
+    min-width: 100vh;
+    max-height: 100vh;
+    min-height: 100vh;
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 1.5);
+}
+
+.work-add-paper {
+    width: 100%;
+    max-height: 100vh;
+    min-height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    z-index: 1;
+}
+
+.form-add {
     width: 500px;
 }
 
-h1{
+h1 {
     z-index: 2;
 }
 
-.input-add-box textarea{
+.input-add-box textarea {
     width: 500px;
     height: 400px;
     border-radius: 10px;

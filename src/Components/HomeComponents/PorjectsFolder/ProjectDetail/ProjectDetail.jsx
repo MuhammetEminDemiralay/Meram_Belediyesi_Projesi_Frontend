@@ -29,7 +29,7 @@ function ProjectDetail() {
         <>
             <div className="news-container">
                 <div className="container newspaper-container">
-                    <img className='newspaper-paper' src={imageUrl + newspaper} alt="" />
+                    {/* <img className='newspaper-paper' src={imageUrl + newspaper} alt="" /> */}
                     <div className="news-images-box">
                         <img src={projectDetail.projectImagePath ? imageUrl + projectDetail.projectImagePath : imageUrl + noImage} className="d-block w-100" alt="..." />
                         <div className="news-body">

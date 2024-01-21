@@ -7,12 +7,10 @@
 }
 
 .news-container .newspaper-container {
-    width: 100%;
+    min-width: 100vh;
     max-height: 100vh;
     min-height: 100vh;
     position: relative;
-    display: flex;
-    flex-direction: column;
     padding: 0;
     overflow: hidden;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 1.5);
@@ -29,20 +27,18 @@
 .newspaper-container .newspaper-navbar {
     z-index: 3;
     width: 100%;
-    height: 80px;
+    height: 12vh;
     display: flex;
+    align-items: center;
     margin: 0 auto;
     padding: 0 150px;
     background-color: #f5ebe0;
-    position: absolute;
-    top: 0;
+    position: relative;
 }
 
 
 .newspaper-navbar .icon-edit {
     display: flex;
-    align-items: center;
-    justify-content: center;
     position: absolute;
     right: 20px;
     top: 50%;
@@ -58,7 +54,7 @@
     transition: all 0.2s linear;
 }
 
-.newspaper-navbar .icon-edit:hover{
+.newspaper-navbar .icon-edit:hover {
     background-color: #fff;
     color: #000814;
 }
@@ -79,11 +75,13 @@
 
 .newspaper-container .newspaper-box {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
+    justify-content: start;
+    width: 100%;
+    height: 86vh;
     gap: 20px;
-    padding: 0;
     z-index: 2;
-    min-height: 100%;
-    margin-top: 100px;
+    align-content: start;
+    margin: 20px auto;
+
 }

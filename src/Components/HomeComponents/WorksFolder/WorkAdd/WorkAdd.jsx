@@ -2,9 +2,9 @@ import { useState } from 'react'
 import './WorkAdd.css'
 import { useNavigate } from 'react-router-dom'
 
-function NewsAdd() {
+function WorkAdd() {
     const newspaper = "Images/business.jpg"
-    const imageUrl = `https://localhost:44358/Images/`
+    const imageUrl = `https://localhost:44358/`
     const navi = useNavigate()
     const workModel = {title : "", body : ""}
     const [works, setWorks] = useState(workModel)
@@ -33,9 +33,9 @@ function NewsAdd() {
     }
 
     return (
-        <div className="works-container ">
-            <div className="container newspaper-container">
-                <img className='newspaper-paper' src={imageUrl + newspaper} alt="" />
+        <div className="works-add-container">
+            <div className="container work-add-container">
+                {/* <img className='work-add-paper' src={imageUrl + newspaper} alt="" /> */}
                 <h1>İş Ekle</h1>
                 <form className='form-add' onSubmit={handleSubmit}>
                     <div className="input-add-box">
@@ -55,4 +55,4 @@ function NewsAdd() {
     )
 }
 
-export default NewsAdd
+export default WorkAdd

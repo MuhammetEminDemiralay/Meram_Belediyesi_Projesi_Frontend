@@ -7,12 +7,10 @@
 }
 
 .works-container .work-container {
-    width: 100%;
+    min-width: 100vh;
     max-height: 100vh;
     min-height: 100vh;
     position: relative;
-    display: flex;
-    flex-direction: column;
     padding: 0;
     overflow: hidden;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 1.5);
@@ -24,25 +22,23 @@
     min-height: 100vh;
     object-fit: cover;
     position: absolute;
-
 }
 
-.work-container .work-navbar {
+.works-container .work-navbar {
     z-index: 3;
     width: 100%;
-    height: 80px;
+    height: 12vh;
     display: flex;
-    background-color: #f5ebe0;
     align-items: center;
     margin: 0 auto;
     padding: 0 150px;
+    background-color: #f5ebe0;
     position: relative;
 }
 
+
 .work-navbar .icon-edit {
     display: flex;
-    align-items: center;
-    justify-content: center;
     position: absolute;
     right: 20px;
     top: 50%;
@@ -58,13 +54,12 @@
     transition: all 0.2s linear;
 }
 
-.work-navbar .icon-edit:hover{
+.work-navbar .icon-edit:hover {
     background-color: #fff;
     color: #000814;
 }
 
-
-.work-navbar .meram-work {
+.work-navbar .work-newspaper {
     font-size: 40px;
     margin-left: 20px;
     font-weight: 500;
@@ -74,12 +69,18 @@
     font-size: 80px;
 }
 
+.work-navbar i:hover {
+    cursor: pointer;
+}
+
 .work-container .work-box {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
+    justify-content: start;
+    width: 100%;
+    height: 86vh;
     gap: 20px;
-    padding: 0;
     z-index: 2;
-    margin-top: 30px;
+    align-content: start;
+    margin: 20px auto;
 }

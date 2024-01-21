@@ -1,0 +1,22 @@
+.project-category-list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 175px;
+    height: 100%;
+    border: 3px solid #fff;
+    background-color: #81b29a;
+    color: #11151c;
+    font-size: 20px;
+    font-weight: 500;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    cursor: pointer;
+    border-bottom-width: 5px;
+    transition: all 0.2s linear;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+.project-category-list:hover{
+    border-bottom-color: #000814;
+}

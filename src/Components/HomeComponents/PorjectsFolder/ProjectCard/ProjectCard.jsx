@@ -3,7 +3,7 @@ import './ProjectCard.css'
 import { useNavigate } from 'react-router-dom'
 
 
-function ProjectCard({ item }) {
+function ProjectCard({ item}) {
 
     const imageUrl = `https://localhost:44358/`
     const noImage = `Images/noImage.jpg`

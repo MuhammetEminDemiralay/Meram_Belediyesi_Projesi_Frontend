@@ -1,10 +1,10 @@
 .card-box {
-    width: 500px;
-    max-height: 175px;
-    min-height: 175px;
+    width: 400px;
+    max-height: 150px;
+    min-height: 150px;
     height: 100%;
     display: flex;
-    border-radius: 10px 0 0 10px;
+    border-radius: 10px;
     backdrop-filter: blur(10px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
     cursor: pointer;
@@ -13,7 +13,8 @@
 }
 
 .card-box:hover {
-    background-color: darkturquoise;
+    background-color: #ad2831;
+    color: #fff;
 }
 
 .card-box .newspaper-info {
@@ -37,8 +38,8 @@
 
 .card-box img {
     object-fit: cover;
-    max-width: 175px;
-    min-height: 175px;
+    max-width: 150px;
+    min-height: 150px;
     border-radius: 10px 0 0 10px;
 }
 

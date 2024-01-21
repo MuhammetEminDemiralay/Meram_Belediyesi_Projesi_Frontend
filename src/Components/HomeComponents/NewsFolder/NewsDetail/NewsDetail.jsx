@@ -26,12 +26,12 @@ function NewsDetail({ item }) {
 
     return (
         <>
-            <div className="news-container">
-                <div className="container newspaper-container">
-                    <img className='newspaper-paper' src={imageUrl + newspaper} alt="" />
-                    <div className="news-images-box">
-                        <img src={newsDetail.newsImagePath ? imageUrl + newsDetail.newsImagePath : imageUrl + noImage} className="d-block w-100" alt="..." />
-                        <div className="news-body">
+            <div className="news-detail-container">
+                <div className="container newspaper-detail-container">
+                    <img className='newspaper-detail-paper' src={imageUrl + newspaper} alt="" />
+                    <div className="news-detail-images-box">
+                        <img src={newsDetail.newsImagePath ? imageUrl + newsDetail.newsImagePath : imageUrl + noImage} alt="..." />
+                        <div className="news-detail-body">
                             <h1>{newsDetail.title}</h1>
                             <h6>{newsDetail.body}</h6>
                         </div>

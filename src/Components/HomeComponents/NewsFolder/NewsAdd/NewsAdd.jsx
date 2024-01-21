@@ -35,7 +35,7 @@ function NewsAdd() {
     return (
         <div className="news-container ">
             <div className="container newspaper-container">
-                <img className='newspaper-paper' src={imageUrl + newspaper} alt="" />
+                {/* <img className='newspaper-paper' src={imageUrl + newspaper} alt="" /> */}
                 <h1>Haber Ekle</h1>
                 <form className='form-add' onSubmit={handleSubmit}>
                     <div className="input-add-box">

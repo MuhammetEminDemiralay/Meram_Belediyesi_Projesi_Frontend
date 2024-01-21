@@ -21,24 +21,24 @@ function News() {
         const response = await fetch('https://localhost:44358/api/News/getall');
         const data = await response.json();
         setNews(data.data)
-        console.log(currentUser);
         return data.data
     }
-
     
-    function deleteItem(item){
-        const deleteNews = async (news) => {
-            console.log(item);
-            const response = await fetch('https://localhost:44358/api/News/delete', {
-                method: 'POST',
-                headers: { 'Content-Type': 'Application/json' },
-                body: JSON.stringify(item)
-            })
-            const data = await response.json()
-            return data
+    function deleteItem(item) {
+        if (window.confirm("Silmek istediğine emin misin?")) {
+            const deleteNews = async (news) => {
+                console.log(item);
+                const response = await fetch('https://localhost:44358/api/News/delete', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'Application/json' },
+                    body: JSON.stringify(item)
+                })
+                const data = await response.json()
+                return data
+            }
+            deleteNews()
+            window.location.reload();
         }
-        deleteNews()
-        window.location.reload();
     }
 
 
@@ -50,11 +50,11 @@ function News() {
                 <img className='newspaper-paper' src={imageUrl + newspaper} alt="" />
                 <div className="newspaper-navbar">
                     <i className='bx bx-news'></i>
-                    <span className='meram-newspaper'>Meram Gazetesi</span>
+                    <span className='meram-newspaper'></span>
                     {
-                        currentUser.role == "Editör" && <i onClick={() => navi("news-add")} className='bx bx-plus icon-edit'></i> 
+                        currentUser.role == "Editör" && <i onClick={() => navi("news-add")} className='bx bx-plus icon-edit'></i>
                     }
-                    
+
                 </div>
                 <ul className='newspaper-box'>
                     {

@@ -16,6 +16,10 @@ import ProjectDetail from './Components/HomeComponents/PorjectsFolder/ProjectDet
 import WorkDetail from './Components/HomeComponents/WorksFolder/WorkDetail/WorkDetail'
 import NewsAdd from './Components/HomeComponents/NewsFolder/NewsAdd/NewsAdd'
 import NewsUpdate from './Components/HomeComponents/NewsFolder/NewsUpdate/NewsUpdate'
+import WorkAdd from './Components/HomeComponents/WorksFolder/WorkAdd/WorkAdd'
+import WorkUpdate from './Components/HomeComponents/WorksFolder/WorkUpdate/WorkUpdate'
+import ProjectAdd from './Components/HomeComponents/PorjectsFolder/ProjectAdd/ProjectAdd'
+import ProjectUpdate from './Components/HomeComponents/PorjectsFolder/ProjectUpdate/ProjectUpdate'
 
 
 
@@ -37,10 +41,12 @@ function App() {
         <Route path='newsdetail/:id' element={<NewsDetail />} />
         <Route path='projectdetail/:id' element={<ProjectDetail />} />
         <Route path='workdetail/:id' element={<WorkDetail />} />
-        <Route path='news-add' element={<NewsAdd/>} />
-        <Route path='news-update/:id' element={<NewsUpdate/>} />
-        <Route path='work-add' element={<NewsAdd/>} />
-
+        <Route path='news-add' element={<NewsAdd />} />
+        <Route path='news-update/:id' element={<NewsUpdate />} />
+        <Route path='work-add' element={<WorkAdd />} />
+        <Route path='work-update/:id' element={<WorkUpdate />} />
+        <Route path='project-add' element={<ProjectAdd />} />
+        <Route path='project-update/:id' element={<ProjectUpdate />} />
 
         <Route path='e-meram/' element={<EMeramLayout />}>
           <Route index={true} element={<Products />} />

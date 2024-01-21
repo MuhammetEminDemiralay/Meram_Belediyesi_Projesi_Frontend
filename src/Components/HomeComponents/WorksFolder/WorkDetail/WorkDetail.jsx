@@ -26,12 +26,12 @@ function WorkDetail({ item }) {
 
     return (
         <>
-            <div className="work-container">
-                <div className="container newspaper-container">
-                    <img className='newspaper-paper' src={imageUrl + newspaper} alt="" />
-                    <div className="work-images-box">
-                        <img src={workDetail.workImagePath ? imageUrl + workDetail.workImagePath : imageUrl + noImage} className="d-block w-100" alt="..." />
-                        <div className="work-body">
+            <div className="works-detail-container">
+                <div className="container work-detail-container">
+                    <img className='work-detail-paper' src={imageUrl + newspaper} alt="" />
+                    <div className="work-detail-images-box">
+                        <img src={workDetail.workImagePath ? imageUrl + workDetail.workImagePath : imageUrl + noImage}  alt="..." />
+                        <div className="work-detail-body">
                             <h1>{workDetail.title}</h1>
                             <h6>{workDetail.body}</h6>
                         </div>
