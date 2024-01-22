@@ -1,14 +1,14 @@
 import { useNavigate } from 'react-router-dom'
-import './ProjectAdd'
+import './ProjectAdd.css'
 import { useEffect, useState } from 'react'
 
 
 function ProjectAdd() {
 
-    const newspaper = "Images/Project.jpg"
+    const projectImage = "Images/Project.jpg"
     const imageUrl = `https://localhost:44358/`
     const navi = useNavigate()
-    const projectModel = { categoryId : 0, title: "", body: "" }
+    const projectModel = { categoryId: 0, title: "", body: "" }
     const [project, setProject] = useState(projectModel)
     const [projectCategories, setProjectCategories] = useState([]);
 
@@ -46,24 +46,24 @@ function ProjectAdd() {
     function inputChange(e) {
         console.log(e);
         setProject(prev => (
-            
-            { ...prev, [e.target.id]: e.target.value}
+
+            { ...prev, [e.target.id]: e.target.value }
         ))
     }
 
     return (
-        <div className="works-add-container">
-            <div className="container work-add-container">
-                {/* <img className='work-add-paper' src={imageUrl + newspaper} alt="" /> */}
-                <h1>Proje Ekle</h1>
-                <form className='form-add' onSubmit={handleSubmit}>
+        <div className="projects-add-container">
+            <div className="container project-add-container">
+                <img className='project-add-paper' src={imageUrl + projectImage} alt="" />
+                <form className='form-project-add' onSubmit={handleSubmit}>
+                    <h1>Proje Ekle</h1>
                     <div className="input-add-box">
                         <label htmlFor="title"><b>Proje Başlığı</b></label>
                         <input onChange={inputChange} type="text" placeholder="title" id="title" />
                     </div>
                     <div className="input-add-box">
                         <label htmlFor="categoryId"><b>Kategori</b></label>
-                        <select id='categoryId'  onChange={inputChange}>
+                        <select id='categoryId' onChange={inputChange}>
                             {
                                 projectCategories.map(category => (
                                     <option value={category.id} key={category.id} >{category.categoryName}</option>

@@ -1,15 +1,38 @@
-.form-add{
-    z-index: 2;
+.news-add-container {
+    max-height: 100vh;
+    height: 100%;
+    display: flex;
+}
+
+.news-add-container .newspaper-add-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.newspaper-add-container .newspaper-add-paper {
+    display: flex;
+    position: absolute;
+    max-height: 100vh;
+    z-index: 1;
+}
+
+.form-news-add {
     width: 500px;
-}
-
-h1{
     z-index: 2;
 }
 
-.input-add-box textarea{
+.form-news-add h1{
+    display: flex;
+    justify-content: center;
+}
+
+.input-add-box textarea {
     width: 500px;
     height: 400px;
     border-radius: 10px;
-    padding: 5px;
+    text-indent: 20px;
 }
+

@@ -31,14 +31,18 @@
     display: flex;
     align-items: center;
     margin: 0 auto;
-    padding: 0 150px;
-    background-color: #f5ebe0;
+    padding: 0 35px;
+    background-color: #353535;
+    border: 5px solid #fff;
+    border-left-width: 0;
+    border-right-width: 0;
     position: relative;
 }
 
 
 .work-navbar .icon-edit {
     display: flex;
+    align-items: center;
     position: absolute;
     right: 20px;
     top: 50%;
@@ -52,21 +56,27 @@
     background-color: #000814;
     color: #fff;
     transition: all 0.2s linear;
+    border: 2px solid #fff;
 }
 
 .work-navbar .icon-edit:hover {
     background-color: #fff;
     color: #000814;
+    border-color: #000814;
+
 }
 
-.work-navbar .work-newspaper {
+.work-navbar .work-title {
     font-size: 40px;
     margin-left: 20px;
     font-weight: 500;
+    color: #fff;
 }
 
 .work-navbar i {
-    font-size: 80px;
+    font-size: 70px;
+    color: #fff;
+    font-size: 50px;
 }
 
 .work-navbar i:hover {

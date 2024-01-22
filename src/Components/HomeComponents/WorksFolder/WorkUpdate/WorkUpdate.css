@@ -1,0 +1,38 @@
+.works-update-container {
+    max-height: 100vh;
+    height: 100%;
+    display: flex;
+}
+
+.works-update-container .work-update-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.work-update-container .work-update-paper {
+    display: flex;
+    position: absolute;
+    max-height: 100vh;
+    z-index: 1;
+}
+
+.form-work-update {
+    width: 500px;
+    z-index: 2;
+}
+
+.form-work-update h1{
+    display: flex;
+    justify-content: center;
+}
+
+.input-update-box textarea {
+    width: 500px;
+    height: 400px;
+    border-radius: 10px;
+    text-indent: 20px;
+}
+

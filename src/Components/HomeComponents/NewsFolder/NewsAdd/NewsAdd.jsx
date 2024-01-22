@@ -6,7 +6,7 @@ function NewsAdd() {
     const newspaper = "newspaper.jpg"
     const imageUrl = `https://localhost:44358/Images/`
     const navi = useNavigate()
-    const newsModel = {title : "", body : ""}
+    const newsModel = { title: "", body: "" }
     const [news, setNews] = useState(newsModel)
 
     function handleSubmit(e) {
@@ -21,23 +21,24 @@ function NewsAdd() {
             body: JSON.stringify(news)
         })
         const data = await response.json()
-        if(data.success){
+        if (data.success) {
             navi(`/`)
         }
         return data
     }
-    function inputChange(e){
+    function inputChange(e) {
         setNews(prev => (
-            { ...prev, [e.target.id]: e.target.value}
+            { ...prev, [e.target.id]: e.target.value }
         ))
     }
 
     return (
-        <div className="news-container ">
-            <div className="container newspaper-container">
-                {/* <img className='newspaper-paper' src={imageUrl + newspaper} alt="" /> */}
-                <h1>Haber Ekle</h1>
-                <form className='form-add' onSubmit={handleSubmit}>
+        <div className="news-add-container">
+            <div className="container newspaper-add-container">
+                <img className='newspaper-add-paper' src={imageUrl + newspaper} alt="" />
+                <form className='form-news-add' onSubmit={handleSubmit}>
+                    <h1>Haber Ekle</h1>
+
                     <div className="input-add-box">
                         <label htmlFor="body"><b>Haber Başlığı</b></label>
                         <input onChange={inputChange} type="text" placeholder="title" id="title" />

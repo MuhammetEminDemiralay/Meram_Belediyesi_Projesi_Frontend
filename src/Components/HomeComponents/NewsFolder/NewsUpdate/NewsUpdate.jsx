@@ -4,14 +4,15 @@ import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 
 
-function NewsUpdate(){
+function NewsUpdate() {
 
-    const newspaper = "newspaper.jpg"
-    const imageUrl = `https://localhost:44358/Images/`
+    const newspaper = "Images/newspaper.jpg"
+    const imageUrl = `https://localhost:44358/`
+    const noImage = `Images/noImage.jpg`
     const navi = useNavigate()
-    const newsModel = {id : 0, title : "", body : ""}
+    const newsModel = { id: 0, title: "", body: "" }
     const [news, setNews] = useState(newsModel)
-    const {id} = useParams();
+    const { id } = useParams();
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -20,13 +21,13 @@ function NewsUpdate(){
 
     useEffect(() => {
         targetNews()
-    },[id])
-
+    }, [id])
 
     const targetNews = async () => {
         if (id) {
             const response = await fetch(`https://localhost:44358/api/News/getnewsbynewsid?newsId=${id}`)
             const datas = await response.json()
+            console.log(news.newsImagePath);
             setNews(datas.data)
         }
     }
@@ -38,31 +39,32 @@ function NewsUpdate(){
             body: JSON.stringify(news)
         })
         const data = await response.json()
-        if(data.success){
+        if (data.success) {
             navi(`/`)
         }
         return data.data
     }
 
-    function inputChange(e){
+    function inputChange(e) {
         setNews(prev => (
-            { ...prev, [e.target.id]: e.target.value, id : id}
+            { ...prev, [e.target.id]: e.target.value, id: id }
         ))
     }
 
     return (
-        <div className="news-container ">
-            <div className="container newspaper-container">
-                {/* <img className='newspaper-paper' src={imageUrl + newspaper} alt="" /> */}
-                <h1>Haber Güncelle</h1>
-                <form className='form-add' onSubmit={handleSubmit}>
+        <div className="news-update-container ">
+            <div className="container newspaper-update-container">
+                <img className='newspaper-update-paper' src={imageUrl + newspaper} alt="" />
+
+                <form className='form-news-update' onSubmit={handleSubmit}>
+                    <h1>Haber Güncelle</h1>
                     <div className="input-add-box">
                         <label htmlFor="body"><b>Haber başlığı</b></label>
-                        <input defaultValue={news?.title}  onChange={inputChange} type="text" placeholder="title" id="title" />
+                        <input defaultValue={news?.title} onChange={inputChange} type="text" placeholder="title" id="title" />
                     </div>
                     <div className="input-add-box">
                         <label htmlFor="title"><b>Açıklama</b></label>
-                        <textarea  defaultValue={news?.body}  onChange={inputChange} type="text" placeholder="body" id="body" />
+                        <textarea defaultValue={news?.body} onChange={inputChange} type="text" placeholder="body" id="body" />
                     </div>
                     <div className="input-add-box">
                         <button type='submit' className="product-add-btn">Haberi Güncelle</button>

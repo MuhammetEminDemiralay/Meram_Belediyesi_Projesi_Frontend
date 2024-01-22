@@ -3,10 +3,10 @@ import './WorkAdd.css'
 import { useNavigate } from 'react-router-dom'
 
 function WorkAdd() {
-    const newspaper = "Images/business.jpg"
+    const workImage = "Images/work.jpg"
     const imageUrl = `https://localhost:44358/`
     const navi = useNavigate()
-    const workModel = {title : "", body : ""}
+    const workModel = { title: "", body: "" }
     const [works, setWorks] = useState(workModel)
 
     function handleSubmit(e) {
@@ -21,23 +21,24 @@ function WorkAdd() {
             body: JSON.stringify(works)
         })
         const data = await response.json()
-        if(data.success){
+        if (data.success) {
             navi(`/`)
         }
         return data
     }
-    function inputChange(e){
+    function inputChange(e) {
         setWorks(prev => (
-            { ...prev, [e.target.id]: e.target.value}
+            { ...prev, [e.target.id]: e.target.value }
         ))
     }
 
     return (
         <div className="works-add-container">
             <div className="container work-add-container">
-                {/* <img className='work-add-paper' src={imageUrl + newspaper} alt="" /> */}
-                <h1>İş Ekle</h1>
-                <form className='form-add' onSubmit={handleSubmit}>
+                <img className='work-add-paper' src={imageUrl + workImage} alt="" />
+                <form className='form-work-add' onSubmit={handleSubmit}>
+                    <h1>İş Ekle</h1>
+
                     <div className="input-add-box">
                         <label htmlFor="body"><b>İş Başlığı</b></label>
                         <input onChange={inputChange} type="text" placeholder="title" id="title" />

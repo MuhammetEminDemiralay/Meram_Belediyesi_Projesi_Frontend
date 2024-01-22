@@ -43,13 +43,9 @@ function Products() {
         return datas.data;
     }
 
-
     function handleCompany() {
         company?.id ? navi(`mycompany/${company.id}`) : user.id ? navi("createcompany") : navi("/auth/login")
     }
-
-
-
 
     return (
         <div className='products-wrapper'>

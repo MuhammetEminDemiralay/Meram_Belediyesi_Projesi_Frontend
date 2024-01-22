@@ -50,7 +50,7 @@ function News() {
                 <img className='newspaper-paper' src={imageUrl + newspaper} alt="" />
                 <div className="newspaper-navbar">
                     <i className='bx bx-news'></i>
-                    <span className='meram-newspaper'></span>
+                    <span className='meram-newspaper'>MERAM GAZETESİ</span>
                     {
                         currentUser.role == "Editör" && <i onClick={() => navi("news-add")} className='bx bx-plus icon-edit'></i>
                     }

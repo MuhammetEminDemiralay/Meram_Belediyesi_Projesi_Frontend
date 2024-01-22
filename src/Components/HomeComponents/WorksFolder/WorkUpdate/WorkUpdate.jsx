@@ -3,14 +3,14 @@ import './WorkUpdate.css'
 import { useEffect, useState } from 'react'
 
 
-function WorkUpdate(){
+function WorkUpdate() {
 
-    const newspaper = "newspaper.jpg"
+    const newspaper = "work.jpg"
     const imageUrl = `https://localhost:44358/Images/`
     const navi = useNavigate()
-    const workModel = {id : 0, title : "", body : ""}
+    const workModel = { id: 0, title: "", body: "" }
     const [work, setWork] = useState(workModel)
-    const {id} = useParams();
+    const { id } = useParams();
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -19,7 +19,7 @@ function WorkUpdate(){
 
     useEffect(() => {
         targetWork()
-    },[id])
+    }, [id])
 
 
     const targetWork = async () => {
@@ -37,31 +37,31 @@ function WorkUpdate(){
             body: JSON.stringify(work)
         })
         const data = await response.json()
-        if(data.success){
+        if (data.success) {
             navi(`/`)
         }
         return data.data
     }
 
-    function inputChange(e){
+    function inputChange(e) {
         setWork(prev => (
-            { ...prev, [e.target.id]: e.target.value, id : id}
+            { ...prev, [e.target.id]: e.target.value, id: id }
         ))
     }
 
     return (
-        <div className="news-container ">
-            <div className="container newspaper-container">
-                {/* <img className='newspaper-paper' src={imageUrl + newspaper} alt="" /> */}
-                <h1>İş Güncelle</h1>
-                <form className='form-add' onSubmit={handleSubmit}>
+        <div className="works-update-container ">
+            <div className="container work-update-container">
+                <img className='work-update-paper' src={imageUrl + newspaper} alt="" />
+                <form className='form-work-update' onSubmit={handleSubmit}>
+                    <h1>İş Güncelle</h1>
                     <div className="input-add-box">
                         <label htmlFor="body"><b>İş başlığı</b></label>
-                        <input defaultValue={work?.title}  onChange={inputChange} type="text" placeholder="title" id="title" />
+                        <input defaultValue={work?.title} onChange={inputChange} type="text" placeholder="title" id="title" />
                     </div>
                     <div className="input-add-box">
                         <label htmlFor="title"><b>Açıklama</b></label>
-                        <textarea  defaultValue={work?.body}  onChange={inputChange} type="text" placeholder="body" id="body" />
+                        <textarea defaultValue={work?.body} onChange={inputChange} type="text" placeholder="body" id="body" />
                     </div>
                     <div className="input-add-box">
                         <button type='submit' className="product-add-btn">İşi Güncelle</button>

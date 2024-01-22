@@ -1,41 +1,43 @@
 .works-add-container {
-    min-height: 100vh;
     max-height: 100vh;
-    padding: 60px 10px 10px 10px;
-    position: relative;
-    padding: 0;
+    height: 100%;
+    display: flex;
 }
 
 .works-add-container .work-add-container {
-    min-width: 100vh;
-    max-height: 100vh;
     min-height: 100vh;
-    position: relative;
-    padding: 0;
-    overflow: hidden;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 1.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
-.work-add-paper {
-    width: 100%;
-    max-height: 100vh;
-    min-height: 100vh;
-    object-fit: cover;
+.work-add-container .work-add-paper {
+    display: flex;
     position: absolute;
+    max-height: 100vh;
     z-index: 1;
 }
 
-.form-add {
+.form-work-add {
     width: 500px;
+    z-index: 2;
 }
 
-h1 {
-    z-index: 2;
+.form-work-add h1{
+    display: flex;
+    justify-content: center;
+}
+
+.form-work-add label{
+    font-size: 25px;
+    color: #000814;
+    text-shadow: 0 5px 10px #fff;
 }
 
 .input-add-box textarea {
     width: 500px;
     height: 400px;
     border-radius: 10px;
-    padding: 5px;
+    text-indent: 20px;
 }

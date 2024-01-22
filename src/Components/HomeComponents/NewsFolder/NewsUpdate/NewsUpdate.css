@@ -1,0 +1,37 @@
+.news-update-container {
+    max-height: 100vh;
+    height: 100%;
+    display: flex;
+}
+
+.news-update-container .newspaper-update-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.newspaper-update-container .newspaper-update-paper {
+    display: flex;
+    position: absolute;
+    max-height: 100vh;
+    z-index: 1;
+}
+
+.form-news-update {
+    width: 500px;
+    z-index: 2;
+}
+
+.form-news-update h1{
+    display: flex;
+    justify-content: center;
+}
+
+.input-add-box textarea {
+    width: 500px;
+    max-height: 300px;
+    border-radius: 10px;
+    text-indent: 20px;
+}

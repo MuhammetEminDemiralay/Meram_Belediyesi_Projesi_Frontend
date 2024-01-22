@@ -13,22 +13,20 @@ function Projects() {
 
     const [projects, setProjects] = useState([]);
     const [projectCategories, setProjectCategories] = useState([]);
-    const [categoryId, setCategoryId] = useState(1);
+    const [categoryId, setCategoryId] = useState(7);
     const { currentUser } = useSelector(state => state.auth)
     const navi = useNavigate();
 
 
     useEffect(() => {
-        getProjects()
         getProjectCategories()
-        console.log(categoryId);
+        getProjects()
     }, [categoryId])
 
     const getProjects = async () => {
         const response = await fetch(`https://localhost:44358/api/Project/getprojectbycategoryid?categoryId=${categoryId}`);
         const data = await response.json();
         setProjects(data.data)
-        console.log(data);
         return data.data
     }
 
@@ -39,7 +37,21 @@ function Projects() {
         return data.data
     }
 
-
+    function deleteItem(item) {
+        if (window.confirm("Silmek istediğine emin misin?")) {
+            const deleteProject = async (project) => {
+                const response = await fetch('https://localhost:44358/api/Project/delete', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'Application/json' },
+                    body: JSON.stringify(item)
+                })
+                const data = await response.json()
+                return data
+            }
+            deleteProject()
+            window.location.reload();
+        }
+    }
 
 
 
@@ -48,8 +60,8 @@ function Projects() {
             <div className="container project-container">
                 <img className='project-paper' src={imageUrl + newspaper} alt="" />
                 <div className="project-navbar">
-                    <i className='bx bx-news'></i>
-                    <span className='meram-projects'>Meram Projeler</span>
+                    <i className='bx bx-building-house'></i>
+                    <span className='project-title'>Meram Projeler</span>
                     {
                         currentUser.role == "Editör" && <i onClick={() => navi("project-add")} className='bx bx-plus icon-edit'></i>
                     }
@@ -61,7 +73,7 @@ function Projects() {
                         }
                     </div>
                     {
-                        projects.map(item => <ProjectCard key={item.id} item={item} />)
+                        projects.map(item => <ProjectCard deleteItem={deleteItem} key={item.id} item={item} />)
                     }
                 </ul>
             </div>

@@ -31,14 +31,18 @@
     display: flex;
     align-items: center;
     margin: 0 auto;
-    padding: 0 150px;
-    background-color: #f5ebe0;
+    padding: 0 35px;
+    background-color: #6b705c;
+    border: 5px solid #fff;
+    border-left-width: 0;
+    border-right-width: 0;
     position: relative;
 }
 
 
 .newspaper-navbar .icon-edit {
     display: flex;
+    align-items: center;
     position: absolute;
     right: 20px;
     top: 50%;
@@ -63,10 +67,13 @@
     font-size: 40px;
     margin-left: 20px;
     font-weight: 500;
+    color: #fff;
 }
 
 .newspaper-navbar i {
     font-size: 80px;
+    color: #fff;
+    font-size: 50px;
 }
 
 .newspaper-navbar i:hover {

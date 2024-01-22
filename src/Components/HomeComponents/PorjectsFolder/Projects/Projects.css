@@ -31,7 +31,7 @@
     display: flex;
     align-items: center;
     margin: 0 auto;
-    padding: 0 150px;
+    padding: 0 35px;
     background-color: #81b29a;
     position: relative;
     border: 5px solid #fff;
@@ -42,6 +42,7 @@
 
 .project-navbar .icon-edit {
     display: flex;
+    align-items: center;
     position: absolute;
     right: 20px;
     top: 50%;
@@ -55,14 +56,18 @@
     background-color: #000814;
     color: #fff;
     transition: all 0.2s linear;
+    border: 2px solid #fff;
+
 }
 
 .project-navbar .icon-edit:hover {
     background-color: #fff;
     color: #000814;
+    border-color: #000814;
+
 }
 
-.project-navbar .project-newspaper {
+.project-navbar .project-title {
     font-size: 40px;
     margin-left: 20px;
     font-weight: 500;
@@ -70,6 +75,8 @@
 
 .project-navbar i {
     font-size: 80px;
+    color: #000814;
+    font-size: 50px;
 }
 
 .project-navbar i:hover {
@@ -85,7 +92,7 @@
     gap: 20px;
     z-index: 2;
     align-content: start;
-    padding: 20px;
+    margin: 20px auto;
 }
 
 .project-box .project-category {
@@ -94,7 +101,5 @@
     height: 50px;
     list-style: none;
     display: flex;
-    column-gap: 20px;
-    width: 100%;
-    
+    column-gap: 20px;    
 }

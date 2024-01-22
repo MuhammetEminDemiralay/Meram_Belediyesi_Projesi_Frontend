@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 function Work() {
 
-    const newspaper = "business.jpg"
+    const business = "work.jpg"
     const imageUrl = `https://localhost:44358/Images/`
     const { currentUser } = useSelector(state => state.auth)
     const navi = useNavigate()
@@ -45,10 +45,10 @@ function Work() {
     return (
         <div className="works-container">
             <div className="container work-container">
-                <img className='work-paper' src={imageUrl + newspaper} alt="" />
+                <img className='work-paper' src={imageUrl + business} alt="" />
                 <div className="work-navbar">
-                    <i className='bx bx-news'></i>
-                    <span className='meram-work'>İş İlanlar</span>
+                    <i className="bi bi-briefcase-fill"></i>
+                    <span className='work-title'>İŞ İLANLARI</span>
                     {
                         currentUser.role == "Editör" && <i onClick={() => navi("work-add")} className='bx bx-plus icon-edit'></i>
                     }
