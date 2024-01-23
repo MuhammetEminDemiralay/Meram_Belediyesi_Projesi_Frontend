@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 function News() {
 
-    const newspaper = "newspaper.jpg"
+    const newspaper = "newspap.jpg"
     const imageUrl = `https://localhost:44358/Images/`
     const { currentUser } = useSelector(state => state.auth)
     const navi = useNavigate()

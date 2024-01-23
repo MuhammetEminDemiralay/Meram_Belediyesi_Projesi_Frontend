@@ -69,7 +69,7 @@ function Projects() {
                 <ul className='project-box'>
                     <div className='project-category'>
                         {
-                            projectCategories.map(item => <ProjectCategory key={item.id} setCategoryId={setCategoryId} item={item} />)
+                            projectCategories.map(item => <ProjectCategory key={item.id} categoryId={categoryId} setCategoryId={setCategoryId} item={item} />)
                         }
                     </div>
                     {

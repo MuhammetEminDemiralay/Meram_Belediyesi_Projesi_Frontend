@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import './ProjectCard.css'
-import { json, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 
@@ -10,13 +10,22 @@ function ProjectCard({ item, deleteItem }) {
     const noImage = `Images/noImage.jpg`
     const [newBody, setNewBody] = useState()
     const { currentUser } = useSelector(state => state.auth)
-    const [currentImage, setCurrentImage] = useState({});
+    const [currentImage, setCurrentImage] = useState();
     const navi = useNavigate();
 
     useEffect(() => {
-        setNewBody(item.body.slice(0, 150))
-        console.log(currentImage);
+        setNewBody(item.body.slice(0, 75))
+        getProjectImage();
     }, [])
+
+
+    const getProjectImage = async () => {
+        const response = await fetch(`https://localhost:44358/api/ProjectImage/getprojectimagebyprojectid?projectId=${item.id}`)
+        const datas = await response.json();
+        setCurrentImage(datas?.data);
+        return datas.data
+    }
+
 
     function handleImage(e) {
         const file = e.target.files;
@@ -28,7 +37,6 @@ function ProjectCard({ item, deleteItem }) {
         formData.append('projectId', item.id)
 
         if (!(item.projectImagePath.length > 0)) {
-            console.log("ekleme");
             const addImage = async () => {
                 const response = await fetch("https://localhost:44358/api/ProjectImage/add", {
                     method: "POST",
@@ -38,24 +46,21 @@ function ProjectCard({ item, deleteItem }) {
                 return data;
             }
             addImage();
+            window.location.reload();
         } else {
-            const getProjectImage = async () => {
-                const response = await fetch(`https://localhost:44358/api/ProjectImage/getprojectimagebyprojectid?projectId=${item.id}`)
-                const datas = await response.json();
-                setCurrentImage(datas.data);
-                return datas.data
-            }
-            getProjectImage();
             const updateImage = async () => {
-                formData.append("id", currentImage.id)
+                formData.delete("files")
+                formData.append("file", file[0])
+                formData.append("id", currentImage[0].id)
                 const response = await fetch("https://localhost:44358/api/ProjectImage/update", {
                     method: "POST",
                     body: formData
                 })
-                const data = response.json();
+                const data = await response.json();
                 return data;
             }
             updateImage();
+            window.location.reload();
         }
     }
 

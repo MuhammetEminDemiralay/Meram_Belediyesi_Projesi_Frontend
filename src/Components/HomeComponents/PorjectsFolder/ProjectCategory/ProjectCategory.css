@@ -12,11 +12,13 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     cursor: pointer;
-    border-bottom-width: 5px;
+    border-bottom-width: 8px;
     transition: all 0.2s linear;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
 }
 
-.project-category-list:hover{
-    border-bottom-color: #000814;
+.project-category-list.active-category{
+    border-bottom-color: #ff006e;
+    transform: scale(1.15);
+    color: #fff;
 }
