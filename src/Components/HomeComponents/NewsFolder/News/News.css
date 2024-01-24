@@ -32,6 +32,7 @@
     align-items: center;
     margin: 0 auto;
     padding: 0 35px;
+    background: conic-gradient();
     background-color: #6b705c;
     border: 5px solid #fff;
     border-left-width: 0;

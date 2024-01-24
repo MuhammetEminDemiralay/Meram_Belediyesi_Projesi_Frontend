@@ -1,10 +1,19 @@
-.home-container{
+.homes-container {
     min-height: 100vh;
-    background-color: #ced4da;
+    max-height: 100vh;
+    padding: 60px 10px 10px 10px;
+    position: relative;
+    padding: 0;
+ 
 }
 
-.home{
-    height: 100%;
-    height: 100vh;
-    padding-top: 60px;
+
+.homes-container .home-container {
+    min-width: 100vh;
+    max-height: 100vh;
+    min-height: 100vh;
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+    background-color: blue;
 }

@@ -1,7 +1,128 @@
-.boss-contact-container{
+.bosss-container {
     min-height: 100vh;
+    max-height: 100vh;
     padding: 60px 10px 10px 10px;
-    background-color: blue;
     position: relative;
+    padding: 0;
 }
 
+.bosss-container .boss-container {
+    min-width: 100vh;
+    max-height: 100vh;
+    min-height: 100vh;
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 1.5);
+}
+
+.boss-paper {
+    width: 100%;
+    max-height: 100vh;
+    min-height: 100vh;
+    object-fit: cover;
+    position: absolute;
+}
+
+.template {
+    width: 100%;
+    min-height: 100vh;
+    max-height: 100vh;
+    z-index: 10;
+    position: absolute;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3) inset;
+    border-bottom-width: 0px;
+}
+
+.boss-container .boss-navbar {
+    z-index: 3;
+    height: 100vh;
+    background: conic-gradient();
+    backdrop-filter: blur(10px);
+    background-color: #ffffff6b;
+    border: 5px solid #fff;
+    border-bottom-width: 0;
+    position: relative;
+    display: flex;
+    justify-content: end;
+    z-index: 11;
+    padding: 15px;
+}
+
+.boss-navbar .toggle {
+    width: 45px;
+    height: 45px;
+    border: 3px solid #000814;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 700;
+    color: #000814;
+    cursor: pointer;
+    transition: all 0.4s linear;
+}
+
+.boss-navbar.toggle-active {
+    transition: all 1s ease;
+    width: 600px;
+}
+
+.boss-navbar.toggle-active .toggle {
+    transition: all 1s linear;
+    transform: rotate(180deg);
+}
+
+.boss-navbar.toggle-passive {
+    transition: all 1s ease;
+    width: 90px;
+}
+
+.boss-navbar.toggle-passive .toggle {
+    transition: all 1s linear;
+    transform: rotate(0);
+}
+
+.boss-navbar.toggle-passive .message-option{
+   visibility: hidden;
+} 
+
+.boss-navbar .message-option{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 45px;
+ 
+    max-width: 300px;
+    width: 100%;
+    display: flex;
+}
+
+.message-option .field{
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 500;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.boss-navbar .toggle-field{
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

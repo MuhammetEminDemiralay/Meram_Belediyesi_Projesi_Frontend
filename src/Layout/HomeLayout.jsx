@@ -19,14 +19,12 @@ function HomeLayout() {
                 </div>
             </div>
             <div className="home-container">
-                <div className="container outlet-container">
-                    <Outlet/>
-                </div>
+                <Outlet />
                 <BossContact />
-                <News/>
-                <Projects/>
-                <Work/>
-                <Footer/>
+                <News />
+                <Projects />
+                <Work />
+                <Footer />
             </div>
         </div>
     )
