@@ -54,7 +54,6 @@ function News() {
                     {
                         currentUser.role == "Editör" && <i onClick={() => navi("news-add")} className='bx bx-plus icon-edit'></i>
                     }
-
                 </div>
                 <ul className='newspaper-box'>
                     {

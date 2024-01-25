@@ -16,12 +16,123 @@
     box-shadow: 0 10px 15px rgba(0, 0, 0, 1.5);
 }
 
+.boss-container .message-btn {
+    position: absolute;
+    top: 85%;
+    left: 8%;
+    z-index: 92;
+    width: 250px;
+    height: 50px;
+    border: 4px solid #fff;
+    background-color: #000814;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 500;
+    transition: all 0.5s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+    visibility: visible;
+}
+
+.message-btn.message-btn-passive {
+    visibility: hidden;
+}
+
+.boss-container .message-btn:hover {
+    border: 4px solid #000814;
+    background-color: #fff;
+    color: #000814;
+}
+
 .boss-paper {
     width: 100%;
-    max-height: 100vh;
-    min-height: 100vh;
+    max-height: 88vh;
+    min-height: 88vh;
     object-fit: cover;
     position: absolute;
+    top: 12vh;
+}
+
+.boss-container .boss-navbar {
+    z-index: 3;
+    width: 100%;
+    height: 12vh;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 35px;
+    background: conic-gradient();
+    background-color: #0e9594;
+    border: 5px solid #fff;
+    border-left-width: 0;
+    border-right-width: 0;
+    position: relative;
+}
+
+.boss-navbar .editör-boss-message {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 150px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border: 3px solid #fff;
+    transition: all 0.2s linear;
+}
+
+.boss-navbar .editör-boss-message:hover,
+.boss-navbar .editör-boss-message:hover i,
+.boss-navbar .editör-boss-message:hover .messages{
+    border-color:  #000814;
+    color: #000814;
+}
+
+.editör-boss-message i,
+.editör-boss-message .messages {
+    height: 100%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.editör-boss-message i {
+    width: 30%;
+    font-size: 30px;
+    color: #fff;
+    border-right-width: 0;
+}
+
+.editör-boss-message .messages {
+    width: 70%;
+    font-size: 25px;
+    color: #fff;
+
+}
+
+.editör-boss-message.message-box-passive {
+    display: none;
+}
+
+.boss-navbar .boss-title {
+    font-size: 40px;
+    margin-left: 20px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.boss-navbar .chat-icon {
+    font-size: 80px;
+    color: #fff;
+    font-size: 45px;
+    cursor: pointer;
 }
 
 .template {
@@ -34,14 +145,15 @@
     border-bottom-width: 0px;
 }
 
-.boss-container .boss-navbar {
+.boss-container .boss-sidebar-extra {
     z-index: 3;
-    height: 100vh;
+    height: 88vh;
     background: conic-gradient();
     backdrop-filter: blur(10px);
     background-color: #ffffff6b;
     border: 5px solid #fff;
     border-bottom-width: 0;
+    border-top-width: 0;
     position: relative;
     display: flex;
     justify-content: end;
@@ -49,7 +161,11 @@
     padding: 15px;
 }
 
-.boss-navbar .toggle {
+.boss-container .boss-sidebar-extra.sidebar-active {
+    display: none;
+}
+
+.boss-sidebar-extra .toggle {
     width: 45px;
     height: 45px;
     border: 3px solid #000814;
@@ -65,45 +181,45 @@
     transition: all 0.4s linear;
 }
 
-.boss-navbar.toggle-active {
+.boss-sidebar-extra.toggle-active {
     transition: all 1s ease;
     width: 600px;
 }
 
-.boss-navbar.toggle-active .toggle {
+.boss-sidebar-extra.toggle-active .toggle {
     transition: all 1s linear;
     transform: rotate(180deg);
 }
 
-.boss-navbar.toggle-passive {
+.boss-sidebar-extra.toggle-passive {
     transition: all 1s ease;
     width: 90px;
 }
 
-.boss-navbar.toggle-passive .toggle {
+.boss-sidebar-extra.toggle-passive .toggle {
     transition: all 1s linear;
     transform: rotate(0);
 }
 
-.boss-navbar.toggle-passive .message-option{
-   visibility: hidden;
-} 
+.boss-sidebar-extra.toggle-passive .message-option {
+    visibility: hidden;
+}
 
-.boss-navbar .message-option{
+.boss-sidebar-extra .message-option {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    height: 45px;
- 
-    max-width: 300px;
+    height: 50px;
+    max-width: 350px;
     width: 100%;
+    border: 1px solid black;
     display: flex;
 }
 
-.message-option .field{
+.message-option .field {
     width: 100%;
     height: 100%;
-    border: 1px solid black;
+    border: 5px solid #fff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -111,18 +227,108 @@
     font-weight: 500;
     background-color: #fff;
     cursor: pointer;
+    transition: all 0.3s linear;
 }
 
-.boss-navbar .toggle-field{
+.message-option .field.boss,
+.message-option .field.municipality {
+    background-color: #0e9594;
+    color: #fff;
+}
+
+.boss-sidebar-extra .toggle-field {
     position: absolute;
     top: 80px;
     left: 0;
     width: 100%;
-    height: 100%;
-    border: 1px solid black;
+    height: calc(100% - 80px);
     padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.toggle-field .message {
+    width: 95%;
+    height: 95%;
+    position: absolute;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    visibility: hidden;
+
+}
+
+.message form {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 10px;
+    padding: 20px;
+}
+
+
+.boss-sidebar-extra.toggle-passive .message {
+    opacity: 0;
+    transition: all 0.2s linear;
+}
+
+form .input-message-box {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+}
+
+.input-message-box label {
+    font-size: 18px;
+    margin-bottom: 2px;
+    text-indent: 10px;
+}
+
+.input-message-box input {
+    outline: none;
+    padding: 5px;
+    background-color: #0e9594;
+    border: 3px solid #fff;
+    border-radius: 10px;
+}
+
+.input-message-box textarea {
+    height: 250px;
+    padding: 10px;
+    outline: none;
+    background-color: #0e9594;
+    border: 3px solid #fff;
+    border-radius: 10px;
+    font-size: 18px;
+    color: #fff;
+}
+
+.input-message-box input::placeholder,
+.input-message-box textarea::placeholder {
+    color: #fff;
+}
+
+.input-message-box button {
+    background-color: #0e9594;
+    border: 3px solid #fff;
+    border-radius: 10px;
+    font-size: 20px;
+    color: #fff;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.input-message-box button:hover {
+    background-color: #0c7c7c;
+}
+
+.message.boss-message {
+    visibility: visible;
+}
+
+.message.municipality-message {
+    visibility: visible;
 }

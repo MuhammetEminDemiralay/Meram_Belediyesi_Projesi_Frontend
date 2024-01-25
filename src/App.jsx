@@ -20,6 +20,9 @@ import WorkAdd from './Components/HomeComponents/WorksFolder/WorkAdd/WorkAdd'
 import WorkUpdate from './Components/HomeComponents/WorksFolder/WorkUpdate/WorkUpdate'
 import ProjectAdd from './Components/HomeComponents/PorjectsFolder/ProjectAdd/ProjectAdd'
 import ProjectUpdate from './Components/HomeComponents/PorjectsFolder/ProjectUpdate/ProjectUpdate'
+import BossMessages from './Components/HomeComponents/Messages/Boss/BossMessages'
+import EditörMessage from './Components/HomeComponents/Messages/Editör/EditörMessages'
+
 
 
 
@@ -47,6 +50,9 @@ function App() {
         <Route path='work-update/:id' element={<WorkUpdate />} />
         <Route path='project-add' element={<ProjectAdd />} />
         <Route path='project-update/:id' element={<ProjectUpdate />} />
+
+        <Route path='boss-messages' element={<BossMessages/>}/>
+        <Route path='editör-messages' element={<EditörMessage/>}/>
 
         <Route path='e-meram/' element={<EMeramLayout />}>
           <Route index={true} element={<Products />} />

@@ -13,7 +13,6 @@ export const login = createAsyncThunk("auth/login", async (user) => {
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(user),
     })
-    console.log(response);
     const datas = await response.json();
     return datas.data
 });

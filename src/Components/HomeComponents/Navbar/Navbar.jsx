@@ -19,7 +19,6 @@ function Navbar() {
 
     function handleAuth(){
         dispatch(logout())
-        console.log(isAuth);
     }
 
     return (
