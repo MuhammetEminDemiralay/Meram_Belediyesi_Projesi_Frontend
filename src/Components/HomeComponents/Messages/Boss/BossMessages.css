@@ -11,7 +11,66 @@
     max-height: 100vh;
     min-height: 100vh;
     position: relative;
-    padding: 0;
     overflow: hidden;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 1.5);
+    display: flex;
+    padding: 0;
+}
+
+
+.boss-message-container .boss-message-paper {
+    width: 100%;
+    max-height: 100vh;
+    min-height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    padding: 0;
+}
+
+.boss-message-container .answer-field,
+.boss-message-container .question-field{
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+    z-index: 3;
+}
+
+.boss-message-container .answer-field{
+    width: 40%;
+}
+
+.boss-message-container .question-field{
+    width: 60%;
+}
+
+.question-field ul{
+    list-style: none;
+    padding: 0;
+}
+
+.answer-field .get-question-field{
+    height: 50%;
+}
+
+.answer-field .set-answer-field{
+    height: 50%;
+}
+
+.question-field ul{
+    height: 95%;
+    padding: 20px;
+    margin: 20px;
+    background-color: #ffffff51;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    border: 3px solid #fff;
+
+}
+
+.question-field span{
+    font-size: 30px;
+    font-weight: 600;
+    margin-left: 20px;
+    text-decoration: underline;
 }
