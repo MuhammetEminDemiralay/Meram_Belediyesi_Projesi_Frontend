@@ -1,0 +1,39 @@
+.resumes-container {
+    min-height: 100vh;
+    max-height: 100vh;
+    padding: 60px 10px 10px 10px;
+    position: relative;
+    padding: 0;
+}
+
+.resumes-container .resume-container {
+    min-width: 100vh;
+    max-height: 100vh;
+    min-height: 100vh;
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 1.5);
+}
+
+.resume-container .resume-paper {
+    width: 100%;
+    max-height: 100vh;
+    min-height: 100vh;
+    object-fit: cover;
+    position: absolute;
+}
+
+.resume-container .president-resume{
+    z-index: 20;
+    position: absolute;
+    margin: 100px 10px;
+    padding: 20px;
+    width: 450px;
+    color: #000814;
+    background-color: #ffffff51;
+    backdrop-filter: blur(10px);
+    border: 3px solid #fff;
+    font-size: 14px;
+    border-radius: 10px;
+}

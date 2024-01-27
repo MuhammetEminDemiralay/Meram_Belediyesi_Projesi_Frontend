@@ -22,6 +22,7 @@ import ProjectAdd from './Components/HomeComponents/PorjectsFolder/ProjectAdd/Pr
 import ProjectUpdate from './Components/HomeComponents/PorjectsFolder/ProjectUpdate/ProjectUpdate'
 import BossMessages from './Components/HomeComponents/Messages/Boss/BossMessages'
 import EditörMessage from './Components/HomeComponents/Messages/Editör/EditörMessages'
+import Resume from './Components/HomeComponents/Home/HomeComponents/Resume/Resume'
 
 
 
@@ -38,6 +39,7 @@ function App() {
         <Route path='/' element={<HomeLayout />}>
           <Route index={true} element={<Home />} />
           <Route path='home' element={<Home />} />
+          <Route path='resume' element={<Resume/>}/>
           <Route path='contact' element={<Contact />} />
         </Route>
 
