@@ -1,4 +1,4 @@
-.product-card-wrapper{
+.product-card-wrapper {
     max-width: 200px;
     min-width: 100px;
     width: 100%;
@@ -8,35 +8,42 @@
     border: 3px solid #fff;
     border-radius: 6px;
     background-color: #fff;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s linear;
 }
 
-.product-card-wrapper .product-card-image-box{
+.product-card-wrapper:hover {
+    transform: scale(1.075);
+    cursor: pointer;
+}
+
+
+.product-card-wrapper .product-card-image-box {
     width: 100%;
     min-height: 200px;
     height: 100%;
     max-height: 200px;
-    border:3px solid #fff;
+    border: 3px solid #fff;
 }
 
-.product-card-image-box img{
+.product-card-image-box img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.product-card-wrapper .product-card-body-box{
-    background-color: #457b9d;
+.product-card-wrapper .product-card-body-box {
+    background-color: #4c956c;
     height: calc(100% - 200px);
     border-radius: 6px;
-    border: 3px solid #fff;
+    border: 1px solid #000814;
     padding: 8px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.product-card-body-box .body-box{
+.product-card-body-box .body-box {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -45,12 +52,22 @@
     letter-spacing: 1px;
 }
 
-.body-box .product-name{
-    font-size: 20px;
-    font-weight: 700;
+.body-box .product-name,
+.product-unit-price {
+    font-weight: 500;
+    color: #fff;
 }
 
-.product-card-body-box .product-btn-box{
+.body-box .product-name {
+    font-size: 22px;
+}
+
+.product-unit-price {
+    font-size: 18px;
+}
+
+
+.product-card-body-box .product-btn-box {
     width: 100%;
     height: 30px;
     display: flex;
@@ -58,26 +75,27 @@
     column-gap: 10px;
 }
 
-.product-btn-box i{
+.product-btn-box i {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 40px;
     height: 100%;
-    color: #fff;
-    font-size: 25px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s linear;
-}
-
-.product-btn-box i:hover{
     color: #000814;
-    transform: scale(1.4);
+    font-size: 25px;
+    cursor: pointer;
+    transition: all 0.4s ease;
     font-weight: 900;
+
 }
 
-.product-btn-box button{
+.product-btn-box i:hover {
+    color: #fff;
+    font-size: 30px;
+    transform: rotate(360deg);
+}
+
+.product-btn-box button {
     width: calc(100% - 10px);
     height: 100%;
     border: 2px solid #fff;
@@ -91,8 +109,7 @@
     transition: all 0.2s linear;
 }
 
-.product-btn-box button:hover{
-    background-color: rgb(89, 255, 0);
-    color: #000814;
-    border:2px solid #000814;
+.product-btn-box button:hover {
+    background-color: rgb(255, 95, 95);
+    border: 2px solid #000814;
 }

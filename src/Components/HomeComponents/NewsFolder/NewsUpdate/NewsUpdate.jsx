@@ -27,7 +27,6 @@ function NewsUpdate() {
         if (id) {
             const response = await fetch(`https://localhost:44358/api/News/getnewsbynewsid?newsId=${id}`)
             const datas = await response.json()
-            console.log(news.newsImagePath);
             setNews(datas.data)
         }
     }
@@ -55,7 +54,6 @@ function NewsUpdate() {
         <div className="news-update-container ">
             <div className="container newspaper-update-container">
                 <img className='newspaper-update-paper' src={imageUrl + newspaper} alt="" />
-
                 <form className='form-news-update' onSubmit={handleSubmit}>
                     <h1>Haber Güncelle</h1>
                     <div className="input-add-box">

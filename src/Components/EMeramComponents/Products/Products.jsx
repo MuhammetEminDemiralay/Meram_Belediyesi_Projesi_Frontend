@@ -2,7 +2,7 @@ import './Products.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { fetchAllProducts } from '../../../Redux/Slices/ProductSlicer'
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import Category from '../Category/Category';
 import ProductCard from '../ProdutCard/ProductCard';
 import { current } from '@reduxjs/toolkit';
@@ -18,20 +18,24 @@ function Products() {
     const navi = useNavigate();
     const [company, setCompany] = useState({});
     const [category, setCategory] = useState([]);
-
+    const [categoryId, setCategoryId] = useState();
+    const [filterProducts, setFilterProducts] = useState();
 
     useEffect(() => {
         dispatch(fetchAllProducts())
+        if (categoryId) {
+            setFilterProducts(products.filter(p => p.categoryId == categoryId))
+        }
+
         getAllCategories();
         companyExist()
-    }, [user])
+    }, [user, categoryId])
 
     const companyExist = async () => {
         if (user.id) {
             const response = await fetch(`https://localhost:44358/api/Company/getcompany?userId=${user.id}`)
             const datas = await response.json()
             setCompany(datas.data)
-            console.log(datas.data);
             return datas.data;
         }
     }
@@ -53,7 +57,8 @@ function Products() {
                 <div className="navbar-row">
                     <div className="navbar-row-title-box">
                         <i className='bx bxs-store'></i>
-                        <span>Market</span>
+                        <span>Meram Market</span>
+                        <i className="bi bi-cart-fill basket-route"></i>
                     </div>
                     <div className="navbar-row-route-box">
                         <div className="navbar-row-my-componay-route">
@@ -67,22 +72,26 @@ function Products() {
                 </div>
                 <div className="products-row">
                     <div className="products-col category">
-                        <div className='category-wrapper'>
+                        <div onClick={() => setCategoryId(null)} className={`category-wrapper ${categoryId == null && "active-products-category"}`}>
                             Tüm Kategoriler
+                            <i className={`bi bi-basket2-fill basket ${categoryId == null && "basket-active"}`}></i>
                         </div>
                         <ul className='category-ul'>
                             {
-                                category.map(category => <Category key={category.id} category={category} />)
+                                category.map(category => <Category key={category.id} categoryId={categoryId} setCategoryId={setCategoryId} category={category} />)
                             }
                         </ul>
                     </div>
                     <div className="products-col products">
-                        <ul>
+                        <ul className='product-ul'>
+                            {categoryId &&
+                                filterProducts?.map(product => <ProductCard key={product.id} product={product} />)
+                            }
                             {
-                                products.map(product => <ProductCard key={product.id} product={product} />)
+                                categoryId == null &&
+                                products?.map(product => <ProductCard key={product.id} product={product} />)
                             }
                         </ul>
-
                     </div>
                 </div>
             </div>

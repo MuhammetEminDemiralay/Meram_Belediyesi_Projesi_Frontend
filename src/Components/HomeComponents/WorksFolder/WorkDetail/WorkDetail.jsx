@@ -13,15 +13,12 @@ function WorkDetail({ item }) {
 
     useEffect(() => {
         getWorkDetail();
-        console.log(id);
-        console.log(workDetail);
     }, [id])
 
     const getWorkDetail = async () => {
         const response = await fetch(`https://localhost:44358/api/Work/getworkbyworkid?workId=${id}`)
         const data = await response.json();
         setWorkDetail(data.data);
-        console.log(data.data);
         return data;
     }
 

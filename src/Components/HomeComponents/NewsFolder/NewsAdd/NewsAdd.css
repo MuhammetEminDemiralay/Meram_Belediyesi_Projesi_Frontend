@@ -13,10 +13,11 @@
 }
 
 .newspaper-add-container .newspaper-add-paper {
-    display: flex;
-    position: absolute;
+    width: 100%;
     max-height: 100vh;
-    z-index: 1;
+    min-height: 100vh;
+    object-fit: cover;
+    position: absolute;
 }
 
 .form-news-add {
@@ -24,7 +25,7 @@
     z-index: 2;
 }
 
-.form-news-add h1{
+.form-news-add h1 {
     display: flex;
     justify-content: center;
 }
@@ -35,4 +36,3 @@
     border-radius: 10px;
     text-indent: 20px;
 }
-

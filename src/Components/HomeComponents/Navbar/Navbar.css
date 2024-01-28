@@ -64,7 +64,7 @@
     z-index: 100;
     overflow: scroll;
     overflow-x: hidden;
-    background-color: #fff;
+    background-color: #495057;
 }
 
 .field.right .bottom.dropdown-active {
@@ -75,7 +75,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 120px;
+    width: 150px;
     height: 35px;
     border-radius: 6px;
     border: 2px solid #fff;
@@ -84,6 +84,7 @@
     transition: all 0.2s linear;
     font-size: 22px;
     font-weight: 500;
+    margin-top: 90px;
 }
 
 .bottom .log:hover {
@@ -116,6 +117,12 @@
     font-size: 45px;
     font-weight: 700;
     cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.top-navbar .title-field:hover{
+    transform: scale(1.15);
+    color: #fff;
 }
 
 .top-navbar .icon {
@@ -129,7 +136,7 @@
 .top-navbar .icon:hover {
     font-size: 30px;
     font-weight: 600;
-    color: red;
+    color: rgb(0, 165, 224);
     transform: scale(1.2);
 }
 
@@ -177,7 +184,7 @@
 
 .profil-box .profil-text {
     color: #fff;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 500;
 }
 
@@ -185,14 +192,14 @@
     display: flex;
     align-items: baseline;
     column-gap: 8px;
-    font-size: 18px;
+    font-size: 24px;
     color: #fff;
     font-weight: 500;
     cursor: pointer;
 }
 
 .profil-box .profil-logout:hover i {
-    color: red;
+    color: #fff;
 }
 
 .profil-logout i {
@@ -200,8 +207,12 @@
     font-weight: 500;
     font-size: 26px;
     cursor: pointer;
+    transition: all 0.3s linear;
 }
 
+.profil-logout i:hover{
+    transform: scale(1.5);
+}
 
 .bottom .notification-boxs {
     position: absolute;
@@ -211,7 +222,7 @@
 .dropdown-toggle.initail-dropdown {
     font-size: 15px;
     font-weight: 500;
-    background-color: #343a40;
+    background-color: #3c3440d6;
     color: #fff;
     border: 2px solid #000814;
     width: 100px;
@@ -237,4 +248,9 @@
     color: #343a40;
     background-color: #fff;
     border: 1px solid #343a40;
+    transform: scale(1.2);
+}
+
+.bell-display{
+    display: none;
 }

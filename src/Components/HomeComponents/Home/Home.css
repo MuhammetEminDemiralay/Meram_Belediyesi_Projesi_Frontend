@@ -55,7 +55,7 @@
     border: 2px solid #fff;
     border-radius: 20px 20px 0 0;
     width: 450px;
-    height: 80px;
+    height: 90px;
 }
 
 .home-search-box input{
@@ -87,6 +87,6 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 25px;
+    height: 35px;
     background-color: red;
 }

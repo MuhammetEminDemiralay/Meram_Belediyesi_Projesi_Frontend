@@ -7,13 +7,31 @@
     align-items: center;
     list-style: none;
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
     backdrop-filter: blur(10px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
-    transition: all 0.2s linear;
+    transition: all 0.2s ease;
+    border: 2px solid #fff;
 }
 
 .category-wrapper:hover{
-    background-color: #ff9f1c;
+    background-color: red;
+    color: #fff;
+}
+
+.active-products-category{
+    background-color: red;
+    color: #fff;
+}
+
+.basket{
+    visibility: hidden;
+    position: absolute;
+    right: 15px;
+    font-size: 20px;
+}
+
+.basket-active{
+    visibility: visible;
 }

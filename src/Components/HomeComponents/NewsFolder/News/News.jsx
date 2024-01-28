@@ -27,7 +27,6 @@ function News() {
     function deleteItem(item) {
         if (window.confirm("Silmek istediğine emin misin?")) {
             const deleteNews = async (news) => {
-                console.log(item);
                 const response = await fetch('https://localhost:44358/api/News/delete', {
                     method: 'POST',
                     headers: { 'Content-Type': 'Application/json' },

@@ -4,7 +4,6 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 export const fetchAllProducts = createAsyncThunk('get/getProduct', async () => {
     const response = await fetch('https://localhost:44358/api/Product/getall')
     const datas = await response.json();
-    console.log(datas.data);
     return datas.data
 })
 
@@ -17,8 +16,6 @@ export const postProduct = createAsyncThunk('post/postProduct', async (productDa
         body: JSON.stringify(productData)
     })
     const data = await response.json();
-    console.log(response);
-    console.log(data);
     return data
 })
 
@@ -31,8 +28,6 @@ export const updateProduct = createAsyncThunk('post/updateProduct', async (produ
         body: JSON.stringify(productData)
     })
     const data = await response.json();
-    console.log(response);
-    console.log(data);
     return data
 })
 

@@ -15,12 +15,11 @@ function ProductDetail() {
     }, [id])
 
     const productDetail = async () => {
-            const response = await fetch(`https://localhost:44358/api/Product/getproductbyproductid?productId=${id}`)
-            const datas = await response.json()
-            setProduct(datas.data)
-            console.log(datas.data);
-            return datas
-
+        const response = await fetch(`https://localhost:44358/api/Product/getproductbyproductid?productId=${id}`)
+        const datas = await response.json()
+        setProduct(datas.data)
+        console.log(datas.data);
+        return datas
     }
 
 
@@ -31,6 +30,15 @@ function ProductDetail() {
                 <div className="product-detail-row">
                     <div className="product-detail-img-box">
                         <img src={product.productImagePath ? imageUrl + product.productImagePath : imageUrl + noImage} />
+                    </div>
+                    <div className="product-detail-box">
+                        <li className='title-detail'>ÜRÜN DETAYI</li>
+                        <li >Ürün adı : <span>{product.productName}</span></li>
+                        <li >Kategori : <span>{product.categoryName}</span></li>
+                        <li >Birim fiyat : <span>{product.unitPrice}</span></li>
+                        <li >Stok miktarı <span>{product.unitsInStock}</span></li>
+                        <li >Detay : <span>{product.description}</span></li>
+                        <li className='sell'>Satıcı : <span>{product.companyName}</span></li>
                     </div>
                 </div>
             </div>

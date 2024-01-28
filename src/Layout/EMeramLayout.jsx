@@ -7,8 +7,6 @@ function EMeramLayout() {
         <>
             <Outlet />
         </>
-
-
     )
 }
 

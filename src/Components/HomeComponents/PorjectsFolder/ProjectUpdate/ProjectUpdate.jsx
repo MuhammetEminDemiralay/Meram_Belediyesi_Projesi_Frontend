@@ -22,14 +22,12 @@ function ProjectUpdate() {
     useEffect(() => {
         targetProject();
         getProjectCategories()
-        console.log(id);
     }, [id])
 
     const targetProject = async () => {
         if (id) {
             const response = await fetch(`https://localhost:44358/api/Project/getprojectbyprojectid?projectId=${id}`)
             const datas = await response.json()
-            console.log(datas);
             setProject(datas.data)
         }
     }

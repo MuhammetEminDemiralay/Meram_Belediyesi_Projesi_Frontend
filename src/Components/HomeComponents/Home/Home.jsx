@@ -14,16 +14,7 @@ function Home() {
         <div className="homes-container ">
             <div className="container home-container">
                 <div className='transparent-image'></div>
-                {/* <span className='home-title-big'>Tevazu, Samimiyet ve Gayretle</span> */}
-                <div className='home-search-box'>
-                    <input type="text" placeholder='Şimdi ara . . .' />
-                    <i className="bi bi-search search"></i>
-                    <div className="bottom-btn">
-                        
-                    </div>
-                </div>
                 <img className='newspaper-paper' src={imageUrl + meramImage} alt="" />
-
                 <Outlet />
             </div>
         </div>

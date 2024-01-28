@@ -1,6 +1,6 @@
 .products-wrapper {
     width: 100%;
-    background-color: #000814;
+    background-color: #4c956c;
     min-height: 100vh;
     padding-top: 40px;
     padding-bottom: 20px;
@@ -25,7 +25,7 @@
     border-radius: 10px;
     position: sticky;
     top: 0;
-    background-color: #f3dfc1;
+    background-color: #000814;
     z-index: 100;
     display: flex;
     align-items: center;
@@ -38,6 +38,7 @@
     justify-content: center;
     column-gap: 20px;
     margin-left: 20px;
+    color: #fff;
 }
 
 .navbar-row-title-box i {
@@ -64,17 +65,17 @@
 
 .navbar-row-route-box .home-icon {
     font-size: 35px;
-    color: #ef233c;
+    color: #fff;
     text-shadow: 0 4px #000814;
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
 .navbar-row-route-box .home-icon:hover {
-    color: springgreen;
+    transform: scale(1.2);
 }
 
-.navbar-row-my-componay-route button{
+.navbar-row-my-componay-route button {
     height: 40px;
     border: none;
     border-radius: 6px;
@@ -88,7 +89,7 @@
     transition: all 0.2s linear;
 }
 
-.navbar-row-my-componay-route button:hover{
+.navbar-row-my-componay-route button:hover {
     background-color: #000814;
     color: #fff;
     border: 3px solid #fff;
@@ -103,7 +104,6 @@
     display: flex;
     column-gap: 20px;
     min-height: 100vh;
-
 }
 
 .products-row .products-col {
@@ -114,10 +114,7 @@
 .products-col.category {
     width: 25%;
     border-radius: 10px 0 0 10px;
-
 }
-
-
 
 .products-col.products {
     width: 75%;
@@ -127,13 +124,32 @@
     justify-content: center;
 }
 
-.products-col ul {
+.products-col.products ul {
     padding: 0;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    width: 880px;
 }
 
-.products-col.products ul {
-    width: 880px;
+.products-col.category ul {
+    padding: 0;
+}
+
+.navbar-row-title-box .basket-route{
+    font-size: 45px;
+    color: lime;
+    animation: basket-route 5s infinite forwards linear;
+}
+
+@keyframes basket-route{
+    0%{
+        transform: translateX(0);
+    }
+    50%{
+        transform: translateX(300px)  rotate(-45deg);
+    }
+    75%{
+        transform: translateX(150px);
+    }
 }

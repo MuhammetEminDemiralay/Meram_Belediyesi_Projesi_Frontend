@@ -1,28 +1,135 @@
-.footer-container {
-    min-height: 30vh;
-    max-height: 30vh;
+.footers-container {
+    min-height: 50vh;
+    max-height: 50vh;
     padding: 60px 10px 10px 10px;
     position: relative;
     padding: 0;
 }
 
-.footer-container .footer-container {
+.footers-container .footer-container {
     width: 100%;
-    max-height: 30vh;
-    min-height: 30vh;
+    max-height: 50vh;
+    min-height: 50vh;
     position: relative;
-    display: flex;
-    flex-direction: column;
     padding: 0;
     overflow: hidden;
-    background-color: lime;
+    background-color: #e63946;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 1.5);
+    border: 3px solid #fff;
+    display: flex;
 }
 
-.footer-paper {
-    width: 100%;
-    max-height: 30vh;
-    min-height: 30vh;
-    object-fit: cover;
-    position: absolute;
+.footer-container .left-col {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.left-col h1 {
+    color: #fff;
+    font-weight: 700;
+}
+
+.contact-box {
+    display: flex;
+    column-gap: 15px;
+    background-color: #ffffff8c;
+    backdrop-filter: blur(10px);
+    width: 200px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    border: 3px solid #fff;
+    margin-top: 10px;
+}
+
+.contact-box .contact-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+
+.contact-box .contact-icon:hover {
+    transform: scale(1.3);
+}
+
+.contact-icon.bi-facebook {
+    color: #3b5998;
+}
+
+.contact-icon.bi-twitter {
+    color: #00acee;
+}
+
+.contact-icon.bi-instagram {
+    color: rgb(255, 0, 183);
+}
+
+
+.footer-container .right-col {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-col .phone-contact {
+    margin-top: 15px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.phone-contact .phone,
+.phone-contact .number {
+    font-size: 30px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.left-col .email {
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.left-col .location {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    color: #fff;
+    margin-top: 15px;
+}
+
+.right-col .link-box{
+    width: 25%;
+    height: 100%;
+    margin: 0 auto;
+    padding-top: 45px;
+    padding-left: 35px;
+    color:#fff;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+
+.link-box a{
+    font-size: 16px;
+}
+
+.link-box a:hover{
+    transform: scale(1.2);
 }

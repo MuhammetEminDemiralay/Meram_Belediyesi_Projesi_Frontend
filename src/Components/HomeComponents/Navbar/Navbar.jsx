@@ -31,7 +31,6 @@ function Navbar() {
     }
 
     const getAnswer = async () => {
-        console.log(currentUser);
         if (currentUser.id) {
             const response = await fetch(`https://localhost:44358/api/Message/getallmessagesbyuserıd?userId=${currentUser.id}`)
             const data = await response.json();
@@ -125,7 +124,7 @@ function Navbar() {
                 <div className="field right">
                     <div className='top'>
                         <i className={`bi bi-shop icon ${isAuth ? "actice" : "noActive"}`} onClick={() => { navi("e-meram") }}></i>
-                        <i className={`bi bi-bell icon bell`} onClick={() => handleDropdown(1)} id='bell'></i>
+                        <i className={`bi bi-bell icon bell ${!isAuth && "bell-display"}`} onClick={() => handleDropdown(1)} id='bell'></i>
                         <i className="bi bi-person-circle icon" onClick={() => handleDropdown(2)} id='log'></i>
                     </div>
                     <div className={`bottom ${active ? 'dropdown-active' : ''}`}>

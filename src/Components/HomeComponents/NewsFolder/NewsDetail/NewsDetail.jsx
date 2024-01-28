@@ -15,15 +15,12 @@ function NewsDetail() {
 
     useEffect(() => {
         getNewsDetail();
-        console.log(newsDetail);
     }, [id])
 
     const getNewsDetail = async () => {
         const response = await fetch(`https://localhost:44358/api/News/getnewsbynewsid?newsId=${id}`)
         const data = await response.json();
         setNewsDetail(data.data);
-        console.log(response);
-        console.log(data.data);
         return data;
     }
 

@@ -12,11 +12,14 @@
     flex-direction: column;
 }
 
-.newspaper-update-container .newspaper-update-paper {
-    display: flex;
-    position: absolute;
+
+
+.newspaper-update-container .newspaper-update-paper{
+    width: 100%;
     max-height: 100vh;
-    z-index: 1;
+    min-height: 100vh;
+    object-fit: cover;
+    position: absolute;
 }
 
 .form-news-update {

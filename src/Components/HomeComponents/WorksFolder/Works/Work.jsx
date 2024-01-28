@@ -28,7 +28,6 @@ function Work() {
     function deleteItem(item) {
         if (window.confirm("Silmek istediğine emin misin?")) {
             const deleteWorks = async (works) => {
-                console.log(item);
                 const response = await fetch('https://localhost:44358/api/Work/delete', {
                     method: 'POST',
                     headers: { 'Content-Type': 'Application/json' },

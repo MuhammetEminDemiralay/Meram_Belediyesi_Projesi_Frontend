@@ -4,7 +4,6 @@ import './GetQuestion.css'
 function GetQuestion({ question }) {
 
     useEffect(() => {
-        console.log(question);
     }, [question])
 
     return (

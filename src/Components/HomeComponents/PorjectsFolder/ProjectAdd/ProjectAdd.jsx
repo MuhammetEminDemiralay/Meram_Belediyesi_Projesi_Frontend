@@ -29,7 +29,6 @@ function ProjectAdd() {
             body: JSON.stringify(project)
         })
         const data = await response.json()
-        console.log(response);
         if (data.success) {
             navi(`/`)
         }
@@ -44,7 +43,6 @@ function ProjectAdd() {
     }
 
     function inputChange(e) {
-        console.log(e);
         setProject(prev => (
 
             { ...prev, [e.target.id]: e.target.value }
